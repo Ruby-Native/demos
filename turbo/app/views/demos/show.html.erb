@@ -1,0 +1,39 @@
+<%= render "shared/header", title: params[:slow] ? "Slow page" : "Demo" %>
+
+<div class="container">
+  <% if params[:slow] %>
+    <div class="alert alert-success mt-4">
+      This page took 3 seconds to load. The spinner should have been visible while waiting.
+    </div>
+  <% end %>
+  <h6 class="text-body-secondary mt-4">Dialogs</h6>
+  <div class="list-group">
+    <button class="list-group-item list-group-item-action" onclick="alert('Hello from Ruby Native!')">
+      Alert
+    </button>
+    <button class="list-group-item list-group-item-action" onclick="confirm('Are you sure?') && alert('Confirmed!')">
+      Confirm
+    </button>
+    <button class="list-group-item list-group-item-action" onclick="var name = prompt('What is your name?'); if (name) alert('Hello, ' + name + '!')">
+      Prompt
+    </button>
+  </div>
+
+  <h6 class="text-body-secondary mt-4">External links</h6>
+  <div class="list-group">
+    <%= link_to "https://masilotti.com", target: "_blank", rel: "noopener", class: "list-group-item list-group-item-action" do %>
+      Open in Safari <i class="bi bi-box-arrow-up-right"></i>
+    <% end %>
+  </div>
+
+  <h6 class="text-body-secondary mt-4">Push notifications</h6>
+  <div class="list-group">
+    <%= link_to "Send a notification", new_demo_notification_path, class: "list-group-item list-group-item-action" %>
+  </div>
+
+  <h6 class="text-body-secondary mt-4">Loading</h6>
+  <div class="list-group">
+    <%= link_to "Slow page (3 seconds)", demo_path(slow: true), class: "list-group-item list-group-item-action" %>
+    <%= link_to "Error page", demo_path(error: true), class: "list-group-item list-group-item-action" %>
+  </div>
+</div>

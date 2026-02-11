@@ -1,0 +1,19 @@
+app:
+  name: Bookmarks
+
+appearance:
+  tint_color: "#007AFF"
+  background_color: "#FFFFFF"
+  status_bar: dark
+  status_bar_color: "#F8F9FA"
+
+tabs:
+  - title: Links
+    path: /links
+    icon: link
+  - title: Tags
+    path: /tags
+    icon: tag
+  - title: Demo
+    path: /demo
+    icon: flask

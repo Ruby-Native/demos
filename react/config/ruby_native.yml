@@ -1,0 +1,17 @@
+app:
+  name: Habits
+appearance:
+  tint_color: "#4F46E5"
+  background_color: "#FFFFFF"
+  status_bar: dark
+  status_bar_color: "#FFFFFF"
+tabs:
+  - title: Today
+    path: /today
+    icon: calendar
+  - title: Habits
+    path: /habits
+    icon: list.bullet
+  - title: Profile
+    path: /profile
+    icon: person
