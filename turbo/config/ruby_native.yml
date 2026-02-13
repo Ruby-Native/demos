@@ -3,9 +3,12 @@ app:
 
 appearance:
   tint_color: "#007AFF"
-  background_color: "#FFFFFF"
-  status_bar: dark
-  status_bar_color: "#F8F9FA"
+  background_color:
+    light: "#FFFFFF"
+    dark: "#212529"
+  status_bar_color:
+    light: "#F8F9FA"
+    dark: "#2B3035"
 
 tabs:
   - title: Links

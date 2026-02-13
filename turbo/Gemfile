@@ -16,7 +16,11 @@ gem "stimulus-rails"
 gem "turbo-rails"
 
 # Native bridge.
-gem "ruby_native", path: "../../gem"
+if ENV["RENDER"]
+  gem "ruby_native", "~> 0.0.3"
+else
+  gem "ruby_native", path: "../../gem"
+end
 
 # Push notifications.
 gem "action_push_native"

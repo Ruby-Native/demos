@@ -1,10 +1,15 @@
 app:
   name: Habits
+
 appearance:
   tint_color: "#4F46E5"
-  background_color: "#FFFFFF"
-  status_bar: dark
-  status_bar_color: "#FFFFFF"
+  background_color:
+    light: "#FFFFFF"
+    dark: "#1C1C1E"
+  status_bar_color:
+    light: "#FFFFFF"
+    dark: "#1C1C1E"
+
 tabs:
   - title: Today
     path: /today

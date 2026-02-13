@@ -12,14 +12,15 @@
       <%= form.email_field :email,
         autocomplete: "email",
         class: "form-control",
-        value: "user@example.com" %>
+        value: (Rails.env.development? ? "user@example.com" : nil) %>
     </div>
 
     <div>
       <%= form.label :password, class: "form-label" %>
       <%= form.password_field :password,
         autocomplete: "current-password",
-        class: "form-control", value: "password" %>
+        class: "form-control",
+        value: (Rails.env.development? ? "password" : nil) %>
     </div>
 
     <div>

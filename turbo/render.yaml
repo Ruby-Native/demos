@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ruby-native-demo
+    runtime: ruby
+    plan: starter
+    buildCommand: ./bin/render-build
+    startCommand: bundle exec puma -C config/puma.rb
+    envVars:
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: RENDER
+        value: "true"
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="light">
   <head>
+    <script>
+      (function() {
+        var mq = window.matchMedia("(prefers-color-scheme: dark)");
+        document.documentElement.dataset.bsTheme = mq.matches ? "dark" : "light";
+        mq.addEventListener("change", function(e) {
+          document.documentElement.dataset.bsTheme = e.matches ? "dark" : "light";
+        });
+      })();
+    </script>
     <title><%= content_for(:title) || "Bookmarks" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
