@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     if (user = User.authenticate_by(authentication_params))
       sign_in user
-      redirect_to root_path, notice: native_app? ? nil : "You are now signed in."
+      redirect_to links_path, notice: native_app? ? nil : "You are now signed in."
     else
       flash.now.alert = "Invalid email or password."
       @page_title = "Sign in"

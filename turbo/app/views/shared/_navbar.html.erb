@@ -9,7 +9,7 @@
 
       <span class="navbar-brand mb-0"><%= content_for(:title).presence || "Bookmarks" %></span>
     <% else %>
-      <%= link_to "Bookmarks", root_path, class: "navbar-brand" %>
+      <%= link_to "Bookmarks", user_signed_in? ? links_path : root_path, class: "navbar-brand" %>
     <% end %>
 
     <% unless native_app? %>
@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="<%= native_app? ? "" : "collapse navbar-collapse" %>" id="navbar">
-      <% unless native_app? %>
+      <% if user_signed_in? && !native_app? %>
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
             <%= link_to "Links", links_path, class: "nav-link" %>
@@ -45,6 +45,12 @@
             <li><%= button_to "Sign out", session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>
         </div>
+      <% else %>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <%= link_to "Sign in", new_session_path, class: "nav-link" %>
+          </li>
+        </ul>
       <% end %>
     </div>
   </div>

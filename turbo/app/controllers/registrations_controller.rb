@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
     if @user.save
       create_default_links(@user)
       sign_in @user
-      redirect_to root_path, notice: native_app? ? nil : "Welcome! Your account has been created."
+      redirect_to links_path, notice: native_app? ? nil : "Welcome! Your account has been created."
     else
       @page_title = "Create an account"
       render :new, status: :unprocessable_entity
