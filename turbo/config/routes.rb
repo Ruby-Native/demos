@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :notifications, only: %i[new create], module: :demo
   end
   resource :session, only: %i[new create destroy]
+  resource :registration, only: %i[new create]
 
   root "links#index"
 end
