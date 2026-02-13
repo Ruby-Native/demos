@@ -3,6 +3,7 @@ services:
     name: ruby-native-demo
     runtime: ruby
     plan: starter
+    rootDir: demos/turbo
     buildCommand: ./bin/render-build
     startCommand: bundle exec puma -C config/puma.rb
     envVars:
