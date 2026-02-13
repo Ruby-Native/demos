@@ -11,6 +11,8 @@ services:
         generateValue: true
       - key: RENDER
         value: "true"
+      - key: BUNDLE_FORCE_RUBY_PLATFORM
+        value: "true"
     disk:
       name: data
       mountPath: /var/data
