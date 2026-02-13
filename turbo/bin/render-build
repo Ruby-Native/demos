@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit
 
+gem install bundler --conservative
 bundle lock --update ruby_native
-bundle install
+bundle install --jobs 4
 bundle exec rails assets:precompile
