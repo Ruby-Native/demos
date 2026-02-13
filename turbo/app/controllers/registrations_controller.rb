@@ -11,6 +11,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(registration_params)
 
     if @user.save
+      create_default_links(@user)
       sign_in @user
       redirect_to root_path, notice: native_app? ? nil : "Welcome! Your account has been created."
     else
@@ -23,5 +24,15 @@ class RegistrationsController < ApplicationController
 
   def registration_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def create_default_links(user)
+    YAML.load_file(Rails.root.join("config/default_links.yml")).each do |attrs|
+      link = user.links.create!(title: attrs["title"], url: attrs["url"], description: attrs["description"])
+      attrs["tags"].each do |tag_name|
+        tag = Tag.find_or_create_by!(name: tag_name)
+        LinkTag.find_or_create_by!(link: link, tag: tag)
+      end
+    end
   end
 end

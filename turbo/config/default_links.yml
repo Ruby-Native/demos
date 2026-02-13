@@ -1,0 +1,16 @@
+- title: Joe Masilotti
+  url: https://newsletter.masilotti.com
+  description: Helping Rails developers ship iOS and Android apps.
+  tags:
+    - rails
+    - hotwire
+    - mobile
+    - newsletter
+
+- title: Ruby Native
+  url: https://rubynative.dev
+  description: Turn your Rails app into an iOS app. Any frontend framework. No Xcode required.
+  tags:
+    - rails
+    - mobile
+    - framework
