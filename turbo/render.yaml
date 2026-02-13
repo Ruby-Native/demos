@@ -5,7 +5,7 @@ services:
     plan: starter
     rootDir: turbo
     buildCommand: ./bin/render-build
-    startCommand: bundle exec puma -C config/puma.rb
+    startCommand: bundle exec rails db:prepare && bundle exec puma -C config/puma.rb
     envVars:
       - key: SECRET_KEY_BASE
         generateValue: true

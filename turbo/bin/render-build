@@ -3,5 +3,4 @@ set -o errexit
 
 bundle lock --update ruby_native
 bundle install
-bundle exec rails db:prepare
 bundle exec rails assets:precompile
