@@ -16,7 +16,7 @@
         autocomplete: "email",
         class: "w-full rounded-xl border border-coffee-200 dark:border-coffee-700 bg-white dark:bg-coffee-900 px-4 py-3 text-coffee-900 dark:text-coffee-100 placeholder-coffee-400 focus:outline-none focus:ring-2 focus:ring-coffee-500",
         placeholder: "you@example.com",
-        value: (Rails.env.development? ? "coffee@example.com" : nil) %>
+        value: "demo@example.com" %>
     </div>
 
     <div>
@@ -24,7 +24,7 @@
       <%= form.password_field :password,
         autocomplete: "current-password",
         class: "w-full rounded-xl border border-coffee-200 dark:border-coffee-700 bg-white dark:bg-coffee-900 px-4 py-3 text-coffee-900 dark:text-coffee-100 placeholder-coffee-400 focus:outline-none focus:ring-2 focus:ring-coffee-500",
-        value: (Rails.env.development? ? "password" : nil) %>
+        value: "password" %>
     </div>
 
     <div>

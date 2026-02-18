@@ -1,7 +1,7 @@
 puts "Seeding Daily Grind..."
 
 # Default user
-user = User.find_or_create_by!(email: "coffee@example.com") do |u|
+user = User.find_or_create_by!(email: "demo@example.com") do |u|
   u.name = "Alex"
   u.password = "password"
   u.password_confirmation = "password"
