@@ -32,6 +32,17 @@
     </div>
   <% end %>
 
+  <div class="relative mt-8">
+    <div class="absolute inset-0 flex items-center">
+      <div class="w-full border-t border-coffee-200 dark:border-coffee-700"></div>
+    </div>
+    <div class="relative flex justify-center text-sm">
+      <span class="bg-cream dark:bg-cream-dark px-4 text-coffee-400 dark:text-coffee-500">or</span>
+    </div>
+  </div>
+
+  <%= button_to "Continue as guest", guest_session_path, class: "w-full mt-6 rounded-xl border border-coffee-300 dark:border-coffee-600 text-coffee-700 dark:text-coffee-300 font-semibold py-3 hover:bg-coffee-50 dark:hover:bg-coffee-900 transition cursor-pointer" %>
+
   <p class="text-center mt-6 text-sm text-coffee-500 dark:text-coffee-400">
     Don't have an account?
     <%= link_to "Create one", new_registration_path, class: "font-medium text-coffee-800 dark:text-coffee-200 underline" %>

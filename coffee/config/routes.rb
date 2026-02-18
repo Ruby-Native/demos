@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resource :rewards, only: [:show]
   resource :account, only: [:show, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
+  resource :guest_session, only: [:create]
   resource :registration, only: [:new, :create]
 
   root "pages#landing"
