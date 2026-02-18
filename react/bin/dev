@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
 
-exec "overmind", "start", "-f", "Procfile.dev", *ARGV
+unless system("gem list -i foreman", out: File::NULL, err: File::NULL)
+  puts "Installing foreman..."
+  system("gem install foreman")
+end
+
+exec "foreman", "start", "-f", "Procfile.dev", *ARGV

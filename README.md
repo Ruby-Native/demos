@@ -17,7 +17,7 @@ A habit tracker app using Inertia.js + React 19.
 
 - **Stack:** Rails 8.1.2, Inertia Rails, React 19, Vite, Tailwind CSS 4
 - **Port:** 3001 (Vite on 3136)
-- **Start:** `bin/dev` (uses overmind)
+- **Start:** `bin/dev` (uses foreman)
 - **Login:** `user@example.com` / `password`
 
 ## Setup
