@@ -45,39 +45,41 @@
       </div>
     </div>
 
-    <div>
-      <h3 class="text-sm font-semibold text-coffee-700 dark:text-coffee-300 mb-2">Milk</h3>
-      <div class="flex flex-wrap gap-2">
-        <% %w[Whole Oat Almond Soy].each_with_index do |milk, i| %>
-          <label>
-            <input type="radio" name="milk" value="<%= milk %>" class="peer hidden" <%= "checked" if i == 0 %>>
-            <div class="py-2 px-4 rounded-xl border-2 border-coffee-200 dark:border-coffee-700 text-sm font-medium text-coffee-700 dark:text-coffee-300 cursor-pointer peer-checked:border-coffee-800 peer-checked:bg-coffee-800 peer-checked:text-white dark:peer-checked:border-coffee-200 dark:peer-checked:bg-coffee-200 dark:peer-checked:text-coffee-900 transition">
-              <%= milk %>
-            </div>
-          </label>
-        <% end %>
-      </div>
-    </div>
-
-    <div>
-      <h3 class="text-sm font-semibold text-coffee-700 dark:text-coffee-300 mb-2">Extras</h3>
-      <div class="space-y-2">
-        <% extras.each do |name, price| %>
-          <label class="group flex items-center justify-between p-3 rounded-xl border-2 border-coffee-200 dark:border-coffee-700 cursor-pointer has-[:checked]:border-coffee-800 has-[:checked]:bg-coffee-50 dark:has-[:checked]:border-coffee-200 dark:has-[:checked]:bg-coffee-900 transition">
-            <div class="flex items-center gap-3">
-              <input type="checkbox" name="extras[]" value="<%= name %>" data-price="<%= price %>"
-                data-action="price#update"
-                class="sr-only">
-              <div class="w-5 h-5 rounded-md border-2 border-coffee-300 dark:border-coffee-600 group-has-[:checked]:bg-coffee-800 group-has-[:checked]:border-coffee-800 dark:group-has-[:checked]:bg-coffee-200 dark:group-has-[:checked]:border-coffee-200 flex items-center justify-center shrink-0 transition">
-                <svg class="w-3 h-3 text-white dark:text-coffee-900 opacity-0 group-has-[:checked]:opacity-100 transition" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5L4.5 9L11 1"/></svg>
+    <% unless @product.category.name == "Pastries" %>
+      <div>
+        <h3 class="text-sm font-semibold text-coffee-700 dark:text-coffee-300 mb-2">Milk</h3>
+        <div class="flex flex-wrap gap-2">
+          <% %w[Whole Oat Almond Soy].each_with_index do |milk, i| %>
+            <label>
+              <input type="radio" name="milk" value="<%= milk %>" class="peer hidden" <%= "checked" if i == 0 %>>
+              <div class="py-2 px-4 rounded-xl border-2 border-coffee-200 dark:border-coffee-700 text-sm font-medium text-coffee-700 dark:text-coffee-300 cursor-pointer peer-checked:border-coffee-800 peer-checked:bg-coffee-800 peer-checked:text-white dark:peer-checked:border-coffee-200 dark:peer-checked:bg-coffee-200 dark:peer-checked:text-coffee-900 transition">
+                <%= milk %>
               </div>
-              <span class="text-sm font-medium text-coffee-700 dark:text-coffee-300"><%= name %></span>
-            </div>
-            <span class="text-sm text-coffee-500 dark:text-coffee-400">+$<%= "%.2f" % (price / 100.0) %></span>
-          </label>
-        <% end %>
+            </label>
+          <% end %>
+        </div>
       </div>
-    </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-coffee-700 dark:text-coffee-300 mb-2">Extras</h3>
+        <div class="space-y-2">
+          <% extras.each do |name, price| %>
+            <label class="group flex items-center justify-between p-3 rounded-xl border-2 border-coffee-200 dark:border-coffee-700 cursor-pointer has-[:checked]:border-coffee-800 has-[:checked]:bg-coffee-50 dark:has-[:checked]:border-coffee-200 dark:has-[:checked]:bg-coffee-900 transition">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" name="extras[]" value="<%= name %>" data-price="<%= price %>"
+                  data-action="price#update"
+                  class="sr-only">
+                <div class="w-5 h-5 rounded-md border-2 border-coffee-300 dark:border-coffee-600 group-has-[:checked]:bg-coffee-800 group-has-[:checked]:border-coffee-800 dark:group-has-[:checked]:bg-coffee-200 dark:group-has-[:checked]:border-coffee-200 flex items-center justify-center shrink-0 transition">
+                  <svg class="w-3 h-3 text-white dark:text-coffee-900 opacity-0 group-has-[:checked]:opacity-100 transition" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5L4.5 9L11 1"/></svg>
+                </div>
+                <span class="text-sm font-medium text-coffee-700 dark:text-coffee-300"><%= name %></span>
+              </div>
+              <span class="text-sm text-coffee-500 dark:text-coffee-400">+$<%= "%.2f" % (price / 100.0) %></span>
+            </label>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
 
     <div>
       <%= form.submit "Add to order · #{@product.display_price}",
