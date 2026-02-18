@@ -1,0 +1,21 @@
+<% content_for :title, "Daily Grind" %>
+
+<div class="mt-12 text-center">
+  <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-coffee-800 dark:bg-coffee-200 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white dark:text-coffee-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h14a3 3 0 013 3v1a3 3 0 01-3 3H3V7zm0 7h14v1a4 4 0 01-4 4H7a4 4 0 01-4-4v-1zm1-9c.5-1 1.5-2 2-2m4 2c.5-1 1.5-2 2-2m4 2c.5-1 1.5-2 2-2" />
+    </svg>
+  </div>
+
+  <h1 class="text-3xl font-bold text-coffee-800 dark:text-coffee-100">
+    Daily Grind
+  </h1>
+  <p class="mt-2 text-coffee-500 dark:text-coffee-400">
+    Your favorite coffee, made simple.
+  </p>
+
+  <div class="mt-10 space-y-3">
+    <%= link_to "Sign in", new_session_path, class: "block w-full rounded-xl bg-coffee-800 dark:bg-coffee-200 text-white dark:text-coffee-900 font-semibold py-3 text-center hover:bg-coffee-700 dark:hover:bg-coffee-300 transition" %>
+    <%= link_to "Create an account", new_registration_path, class: "block w-full rounded-xl border-2 border-coffee-800 dark:border-coffee-200 text-coffee-800 dark:text-coffee-200 font-semibold py-3 text-center hover:bg-coffee-100 dark:hover:bg-coffee-900 transition" %>
+  </div>
+</div>

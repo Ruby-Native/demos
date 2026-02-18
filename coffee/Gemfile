@@ -1,0 +1,34 @@
+source "https://rubygems.org"
+
+gem "rails", "~> 8.1.2"
+
+gem "bcrypt", "~> 3.1.7"
+gem "bootsnap", require: false
+gem "propshaft"
+gem "puma", ">= 5.0"
+gem "sqlite3", ">= 2.1"
+gem "tzinfo-data", platforms: %i[windows jruby]
+
+# Hotwire frontend.
+gem "importmap-rails"
+gem "stimulus-rails"
+gem "turbo-rails"
+gem "tailwindcss-rails"
+
+# Native bridge.
+if ENV["RENDER"]
+  gem "ruby_native", "~> 0.0.3"
+else
+  gem "ruby_native", path: "../../gem"
+end
+
+# Background jobs and WebSockets.
+gem "solid_queue"
+gem "solid_cable"
+
+# Push notifications.
+gem "action_push_native"
+
+group :development do
+  gem "web-console"
+end

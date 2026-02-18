@@ -1,0 +1,53 @@
+<% content_for :title, "Create an account" %>
+<% content_for :native_signals, native_form_tag %>
+
+<div class="mt-8">
+  <h1 class="text-2xl font-bold text-center text-coffee-800 dark:text-coffee-100">
+    Create an account
+  </h1>
+  <p class="mt-1 text-center text-sm text-coffee-500 dark:text-coffee-400">
+    Join Daily Grind and start earning rewards
+  </p>
+
+  <% if @user.errors.any? %>
+    <div class="mt-6 p-4 rounded-xl bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-200 text-sm">
+      <p class="font-semibold mb-1">Please fix these issues:</p>
+      <ul class="list-disc list-inside">
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: @user, url: registration_path, class: "mt-8 space-y-4" do |form| %>
+    <div>
+      <%= form.label :name, class: "block text-sm font-medium text-coffee-700 dark:text-coffee-300 mb-1" %>
+      <%= form.text_field :name, autocomplete: "name", class: "w-full rounded-xl border border-coffee-200 dark:border-coffee-700 bg-white dark:bg-coffee-900 px-4 py-3 text-coffee-900 dark:text-coffee-100 placeholder-coffee-400 focus:outline-none focus:ring-2 focus:ring-coffee-500" %>
+    </div>
+
+    <div>
+      <%= form.label :email, class: "block text-sm font-medium text-coffee-700 dark:text-coffee-300 mb-1" %>
+      <%= form.email_field :email, autocomplete: "email", class: "w-full rounded-xl border border-coffee-200 dark:border-coffee-700 bg-white dark:bg-coffee-900 px-4 py-3 text-coffee-900 dark:text-coffee-100 placeholder-coffee-400 focus:outline-none focus:ring-2 focus:ring-coffee-500" %>
+    </div>
+
+    <div>
+      <%= form.label :password, class: "block text-sm font-medium text-coffee-700 dark:text-coffee-300 mb-1" %>
+      <%= form.password_field :password, autocomplete: "new-password", class: "w-full rounded-xl border border-coffee-200 dark:border-coffee-700 bg-white dark:bg-coffee-900 px-4 py-3 text-coffee-900 dark:text-coffee-100 placeholder-coffee-400 focus:outline-none focus:ring-2 focus:ring-coffee-500" %>
+    </div>
+
+    <div>
+      <%= form.label :password_confirmation, class: "block text-sm font-medium text-coffee-700 dark:text-coffee-300 mb-1" %>
+      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "w-full rounded-xl border border-coffee-200 dark:border-coffee-700 bg-white dark:bg-coffee-900 px-4 py-3 text-coffee-900 dark:text-coffee-100 placeholder-coffee-400 focus:outline-none focus:ring-2 focus:ring-coffee-500" %>
+    </div>
+
+    <div>
+      <%= form.submit "Create account", class: "w-full rounded-xl bg-coffee-800 dark:bg-coffee-200 text-white dark:text-coffee-900 font-semibold py-3 hover:bg-coffee-700 dark:hover:bg-coffee-300 transition cursor-pointer" %>
+    </div>
+  <% end %>
+
+  <p class="text-center mt-6 text-sm text-coffee-500 dark:text-coffee-400">
+    Already have an account?
+    <%= link_to "Sign in", new_session_path, class: "font-medium text-coffee-800 dark:text-coffee-200 underline" %>
+  </p>
+</div>
