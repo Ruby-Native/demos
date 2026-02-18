@@ -16,3 +16,13 @@
   --color-cream: #FAF7F2;
   --color-cream-dark: #1C1410;
 }
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
