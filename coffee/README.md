@@ -1,24 +1,55 @@
-# README
+# Daily Grind (coffee demo)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A coffee shop ordering app built with Rails, Hotwire, and Tailwind CSS. Demonstrates Ruby Native with a polished consumer-facing UI, rewards system, and guest checkout.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Browse menu by category
+- Add items to cart with extras (e.g., vanilla syrup, oat milk)
+- Order tracking
+- Rewards points and activity history
+- Guest browsing with sign-in for ordering
+- Native tab bar (Menu, Orders, Rewards, Account)
+- Back button navigation
+- Form handling
+- Push notifications
+- Dark mode
 
-* System dependencies
+## Quick start
 
-* Configuration
+```bash
+bin/setup
+bin/dev
+```
 
-* Database creation
+Runs on port 3003. The dev server starts Rails and the Tailwind CSS watcher.
 
-* Database initialization
+Default login: `demo@example.com` / `password`
 
-* How to run the test suite
+## Requirements
 
-* Services (job queues, cache servers, search engines, etc.)
+- Ruby 4.0.1
+- SQLite (`brew install sqlite`)
 
-* Deployment instructions
+## Ruby Native config
 
-* ...
+```yaml
+app:
+  name: Daily Grind
+
+tabs:
+  - title: Menu
+    path: /menu
+    icon: cup.and.saucer
+  - title: Orders
+    path: /orders
+    icon: bag
+  - title: Rewards
+    path: /rewards
+    icon: star
+  - title: Account
+    path: /account
+    icon: person
+```
+
+See `config/ruby_native.yml` for the full config including dark mode colors.

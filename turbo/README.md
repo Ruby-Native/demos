@@ -1,35 +1,47 @@
-# Blog application for Hotwire Native demos
+# Bookmarks (Turbo demo)
 
-Use this simple Rails blogging site to demo Hotwire Native apps.
+A bookmark manager built with Rails and Hotwire. Demonstrates Ruby Native with a Turbo frontend, Bootstrap styling, and push notifications.
 
-![Screenshot of the application running in the browser, on the iOS simulator, and on the Android emulator.](/.github/images/screenshot.png?v=2)
+## Features
+
+- Save and tag bookmarks
+- Native tab bar (Links, Tags, Demo)
+- Back button navigation
+- Form handling (skips forms when navigating back)
+- Push notifications
+- Dark mode
 
 ## Quick start
-
-1. `bin/setup`
-1. `bin/rails server`
-
-## Requirements
-
-* Ruby 3.4 (or higher)
-* [SQLite](https://www.sqlite.org/index.html) - `brew install sqlite`
-
-## Initial setup
-
-An installation script is included with the repository that will get the application set up.
 
 ```bash
 bin/setup
 ```
 
-## Development
+This installs dependencies, seeds the database, and starts the server on port 3001.
 
-Start the server.
+Default login: `user@example.com` / `password`
 
-```bash
-bin/rails server
+## Requirements
+
+- Ruby (no pinned version)
+- SQLite (`brew install sqlite`)
+
+## Ruby Native config
+
+```yaml
+app:
+  name: Bookmarks
+
+tabs:
+  - title: Links
+    path: /links
+    icon: link
+  - title: Tags
+    path: /tags
+    icon: tag
+  - title: Demo
+    path: /demo
+    icon: flask
 ```
 
-## Seeds
-
-Seeding the database, either via `bin/rails db:seed` or during `bin/setup`, creates a few blog posts.
+See `config/ruby_native.yml` for the full config including dark mode colors.
