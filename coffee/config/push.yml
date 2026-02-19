@@ -4,4 +4,4 @@ shared:
     encryption_key: <%= Rails.application.credentials.dig(:action_push_native, :apns, :encryption_key)&.dump %>
     team_id: 6JS2VP4ATY
     topic: com.rubynative.demo
-    connect_to_development_server: true
+    connect_to_development_server: <%= Rails.env.development? %>
