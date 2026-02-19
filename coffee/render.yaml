@@ -5,14 +5,14 @@ services:
     plan: starter
     rootDir: coffee
     buildCommand: ./bin/render-build
-    startCommand: bundle exec rails db:prepare db:seed && bundle exec puma -C config/puma.rb
+    startCommand: bundle exec rails db:prepare db:seed && bundle exec rails server
     envVars:
       - key: SECRET_KEY_BASE
         generateValue: true
       - key: RENDER
         value: "true"
       - key: BUNDLE_FORCE_RUBY_PLATFORM
-        value: "true"
+        value: "false"
       - key: DB_PATH
         value: "/var/data"
       - key: SOLID_QUEUE_IN_PUMA
