@@ -2,7 +2,7 @@ services:
   - type: web
     name: ruby-native-demo
     runtime: ruby
-    plan: starter
+    plan: standard
     rootDir: coffee
     buildCommand: ./bin/render-build
     startCommand: bundle exec rails db:prepare db:seed && bundle exec rails server
@@ -15,6 +15,8 @@ services:
         value: "false"
       - key: DB_PATH
         value: "/var/data"
+      - key: WEB_CONCURRENCY
+        value: "0"
       - key: SOLID_QUEUE_IN_PUMA
         value: "true"
       - key: RAILS_MASTER_KEY
