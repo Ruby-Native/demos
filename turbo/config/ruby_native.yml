@@ -17,6 +17,7 @@ tabs:
   - title: Tags
     path: /tags
     icon: tag
-  - title: Demo
-    path: /demo
-    icon: flask
+  - title: Search
+    path: /search
+    icon: magnifyingglass
+    search: true

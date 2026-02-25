@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :links
+  resources :links do
+    resource :reminder, only: :create
+  end
   resources :tags, only: %i[index show]
   resource :profile, only: %i[show edit update]
-  resource :demo, only: :show do
-    resources :notifications, only: %i[new create], module: :demo
-  end
+  resource :search, only: :show
   resource :session, only: %i[new create destroy]
   resource :registration, only: %i[new create]
 

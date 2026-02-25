@@ -2,9 +2,11 @@
 <% content_for :head, native_form_tag %>
 
 <div class="container d-flex flex-column mw-400 mx-auto">
-  <h1 class="h3 my-4 mx-auto">
-    Create an account
-  </h1>
+  <% unless native_app? %>
+    <h1 class="h3 my-4 mx-auto">
+      Create an account
+    </h1>
+  <% end %>
 
   <% if @user.errors.any? %>
     <div class="alert alert-danger" role="alert">
@@ -17,7 +19,7 @@
     </div>
   <% end %>
 
-  <%= form_with model: @user, url: registration_path, class: "row g-3 mt-1" do |form| %>
+  <%= form_with model: @user, url: registration_path, class: "row g-3 mt-1", data: { controller: "bridge--form" } do |form| %>
     <div>
       <%= form.label :name, class: "form-label" %>
       <%= form.text_field :name, autocomplete: "name", class: "form-control" %>
@@ -39,11 +41,11 @@
     </div>
 
     <div>
-      <%= form.submit "Create account", class: "btn btn-primary w-100" %>
+      <%= form.submit "Create account", class: "btn btn-primary w-100", data: { bridge__form_target: "submit", bridge_title: "Register" } %>
     </div>
   <% end %>
 
   <p class="text-center mt-3">
-    Already have an account? <%= link_to "Sign in", new_session_path %>
+    Already have an account? <%= link_to "Sign in", new_session_path, data: { turbo_action: "replace" } %>
   </p>
 </div>

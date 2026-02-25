@@ -23,7 +23,7 @@ class LinksController < ApplicationController
     @link = current_user.links.build(link_params)
     if @link.save
       update_tags(@link)
-      redirect_to @link, notice: "Link saved."
+      redirect_to @link, notice: native_app? ? nil : "Link saved."
     else
       @page_title = "Add a link"
       render :new, status: :unprocessable_entity
@@ -34,7 +34,7 @@ class LinksController < ApplicationController
     @link = current_user.links.find(params.expect(:id))
     if @link.update(link_params)
       update_tags(@link)
-      redirect_to @link, notice: "Link updated."
+      redirect_to @link, notice: native_app? ? nil : "Link updated."
     else
       @page_title = "Edit link"
       render :edit, status: :unprocessable_entity
@@ -43,7 +43,7 @@ class LinksController < ApplicationController
 
   def destroy
     current_user.links.find(params.expect(:id)).destroy!
-    redirect_to links_path, status: :see_other, notice: "Link removed."
+    redirect_to links_path, status: :see_other, notice: native_app? ? nil : "Link removed."
   end
 
   private

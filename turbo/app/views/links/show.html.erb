@@ -29,6 +29,8 @@
     </div>
   </div>
 
+  <%= button_to "Remind me (in 5 seconds)", link_reminder_path(@link), class: "btn btn-outline-secondary w-100 mt-2" %>
+
   <p class="text-body-secondary small mt-3">
     Saved on <%= @link.created_at.strftime("%B %d, %Y") %>
   </p>

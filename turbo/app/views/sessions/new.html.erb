@@ -2,11 +2,13 @@
 <% content_for :head, native_form_tag %>
 
 <div class="container d-flex flex-column mw-400 mx-auto">
-  <h1 class="h3 my-4 mx-auto">
-    Sign in to your account
-  </h1>
+  <% unless native_app? %>
+    <h1 class="h3 my-4 mx-auto">
+      Sign in to your account
+    </h1>
+  <% end %>
 
-  <%= form_with url: session_path, class: "row g-3 mt-1" do |form| %>
+  <%= form_with url: session_path, class: "row g-3 mt-1", data: { controller: "bridge--form" } do |form| %>
     <div>
       <%= form.label :email, class: "form-label" %>
       <%= form.email_field :email,
@@ -24,11 +26,11 @@
     </div>
 
     <div>
-      <%= form.submit "Sign in", class: "btn btn-primary w-100" %>
+      <%= form.submit "Sign in", class: "btn btn-primary w-100", data: { bridge__form_target: "submit" } %>
     </div>
   <% end %>
 
   <p class="text-center mt-3">
-    Don't have an account? <%= link_to "Create an account", new_registration_path %>
+    Don't have an account? <%= link_to "Create an account", new_registration_path, data: { turbo_action: "replace" } %>
   </p>
 </div>

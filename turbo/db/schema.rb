@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_10_183827) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_25_004827) do
   create_table "action_push_native_devices", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name"
@@ -42,6 +42,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_10_183827) do
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 
+  create_table "reminders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "link_id", null: false
+    t.datetime "send_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["link_id"], name: "index_reminders_on_link_id"
+    t.index ["user_id"], name: "index_reminders_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name", null: false
@@ -61,4 +71,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_10_183827) do
   add_foreign_key "link_tags", "links"
   add_foreign_key "link_tags", "tags"
   add_foreign_key "links", "users"
+  add_foreign_key "reminders", "links"
+  add_foreign_key "reminders", "users"
 end

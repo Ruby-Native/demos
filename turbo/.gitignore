@@ -34,9 +34,6 @@
 /public/vite-dev
 /public/vite-test
 
-# Ignore master key for decrypting credentials and more.
+# Ignore key file for decrypting credentials and more.
 /config/master.key
-
-# Ignore key files for decrypting credentials and more.
 /config/credentials/*.key
-

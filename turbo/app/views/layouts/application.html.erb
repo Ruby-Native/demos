@@ -25,9 +25,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="<%= "padding-top: 56px;" unless native_app? && !user_signed_in? %>">
-    <%= native_tabs_tag if user_signed_in? %>
-    <%= native_push_tag if user_signed_in? %>
+  <body style="<%= "padding-top: 56px;" unless native_app? %>">
+    <div data-controller="bridge--tabs" data-bridge--tabs-enabled-value="<%= user_signed_in? %>"></div>
+    <% if user_signed_in? %>
+      <div data-controller="bridge--push"></div>
+    <% end %>
+    <% if user_signed_in? %>
+      <div data-controller="bridge--menu" data-bridge--menu-title-value="<%= current_user.email %>">
+        <%= link_to "", profile_path, data: { bridge__menu_target: "item", title: "Profile" }, class: "d-none" %>
+        <%= link_to "", session_path, data: { turbo_method: :delete, bridge__menu_target: "item", title: "Sign out", destructive: "" }, class: "d-none" %>
+      </div>
+    <% end %>
     <%= render "shared/navbar" %>
     <main class="mb-5">
       <%= render "shared/flash" %>
