@@ -13,9 +13,9 @@ gem "inertia_rails"
 gem "vite_rails"
 
 # Native bridge.
-gemfile_local = File.join(__dir__, "Gemfile.local")
-if File.exist?(gemfile_local)
-  eval_gemfile(gemfile_local)
+gem_path = File.expand_path("../../gem", __dir__)
+if File.exist?(gem_path)
+  gem "ruby_native", path: gem_path
 else
   gem "ruby_native"
 end
