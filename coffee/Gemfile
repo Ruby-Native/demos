@@ -17,7 +17,7 @@ gem "tailwindcss-rails"
 
 # Native bridge.
 if ENV["RENDER"]
-  gem "ruby_native", "~> 0.0.3"
+  gem "ruby_native"
 else
   gem "ruby_native", path: "../../gem"
 end
