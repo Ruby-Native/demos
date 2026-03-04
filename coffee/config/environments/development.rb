@@ -66,5 +66,7 @@ Rails.application.configure do
   config.hosts << ".rubynative.com"
 
   # Allow session cookies on cross-site POSTs (needed for Apple OAuth callback).
-  config.session_store :cookie_store, same_site: :none, secure: true
+  # same_site: :none requires secure: true, which breaks plain HTTP localhost.
+  # The OAuth flow goes through the Cloudflare tunnel (HTTPS), so this only
+  # needs to be set in production. Removed here to keep localhost working.
 end
