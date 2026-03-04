@@ -36,6 +36,9 @@ gem "solid_cable"
 # Push notifications.
 gem "action_push_native"
 
+# Error monitoring.
+gem "honeybadger"
+
 group :development do
   gem "web-console"
 end
