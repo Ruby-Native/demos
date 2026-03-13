@@ -5,34 +5,22 @@ end
 
 links = [
   {
-    title: "Bootstrap",
-    url: "https://getbootstrap.com",
-    description: "The most popular CSS framework for developing responsive, mobile-first websites.",
-    tags: %w[css frontend]
+    title: "GitHub",
+    url: "https://github.com",
+    description: "The complete developer platform to build, scale, and deliver secure software.",
+    tags: %w[community tools]
   },
   {
-    title: "Stimulus",
-    url: "https://stimulus.hotwired.dev",
-    description: "A modest JavaScript framework for the HTML you already have.",
-    tags: %w[rails hotwire frontend javascript]
+    title: "Ruby Weekly",
+    url: "https://rubyweekly.com",
+    description: "A free, once-weekly email round-up of Ruby news and articles.",
+    tags: %w[ruby newsletter community]
   },
   {
-    title: "Pragmatic Programmers",
-    url: "https://pragprog.com",
-    description: "Publisher of practical books for software developers.",
-    tags: %w[books learning]
-  },
-  {
-    title: "Hotwire",
-    url: "https://hotwired.dev",
-    description: "HTML over the wire. An alternative approach to building modern web applications without much JavaScript.",
-    tags: %w[rails hotwire frontend]
-  },
-  {
-    title: "Hacker News",
-    url: "https://news.ycombinator.com",
-    description: "Social news for programmers and startup founders.",
-    tags: %w[news community]
+    title: "Ruby on Rails",
+    url: "https://rubyonrails.org",
+    description: "A web-app framework that includes everything needed to create database-backed web applications.",
+    tags: %w[ruby rails framework]
   },
   {
     title: "iOS Dev Weekly",
@@ -41,10 +29,34 @@ links = [
     tags: %w[ios newsletter]
   },
   {
-    title: "Ruby on Rails",
-    url: "https://rubyonrails.org",
-    description: "A web-app framework that includes everything needed to create database-backed web applications.",
-    tags: %w[ruby rails framework]
+    title: "Hacker News",
+    url: "https://news.ycombinator.com",
+    description: "Social news for programmers and startup founders.",
+    tags: %w[news community]
+  },
+  {
+    title: "Hotwire",
+    url: "https://hotwired.dev",
+    description: "HTML over the wire. An alternative approach to building modern web applications without much JavaScript.",
+    tags: %w[rails hotwire frontend]
+  },
+  {
+    title: "Hotwire Native for Rails Developers",
+    url: "https://pragprog.com/titles/jmnative/hotwire-native-for-rails-developers",
+    description: "Build native iOS and Android apps backed by your Rails server.",
+    tags: %w[rails hotwire mobile books]
+  },
+  {
+    title: "Stimulus",
+    url: "https://stimulus.hotwired.dev",
+    description: "A modest JavaScript framework for the HTML you already have.",
+    tags: %w[rails hotwire frontend javascript]
+  },
+  {
+    title: "Bootstrap",
+    url: "https://getbootstrap.com",
+    description: "The most popular CSS framework for developing responsive, mobile-first websites.",
+    tags: %w[css frontend]
   },
   {
     title: "Joe Masilotti",
