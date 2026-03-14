@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@brewery, :stamp) do %>
+  <%= render "stamps/button", brewery: @brewery, stamp: current_user.stamps.find_by(brewery: @brewery) %>
+<% end %>

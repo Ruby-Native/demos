@@ -1,0 +1,16 @@
+<% content_for :title, "Sign in" %>
+
+<div class="mt-12 text-center">
+  <h1 class="text-3xl font-bold">Beervana</h1>
+  <p class="mt-2 text-stone-500 dark:text-stone-400">Your Portland brewery passport.</p>
+
+  <div class="mt-8">
+    <%= button_to "/auth/apple", data: {turbo: false}, class: "w-full rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold py-3 hover:bg-gray-800 dark:hover:bg-gray-200 transition cursor-pointer" do %>
+      Sign in with Apple
+    <% end %>
+  </div>
+
+  <p class="mt-6">
+    <%= link_to "Continue without signing in", root_path, class: "text-sm text-stone-500 dark:text-stone-400 underline" %>
+  </p>
+</div>

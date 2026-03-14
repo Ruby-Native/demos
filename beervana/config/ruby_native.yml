@@ -1,0 +1,23 @@
+auth:
+  oauth_paths:
+    - /auth/apple
+
+appearance:
+  tint_color: "#166534"
+  background_color:
+    light: "#FAFAFA"
+    dark: "#171717"
+  status_bar_color:
+    light: "#FAFAFA"
+    dark: "#171717"
+
+tabs:
+  - title: Explore
+    path: /
+    icon: binoculars
+  - title: Passport
+    path: /passport
+    icon: wallet.bifold
+  - title: Profile
+    path: /profile
+    icon: person

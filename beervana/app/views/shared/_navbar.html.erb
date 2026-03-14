@@ -1,0 +1,29 @@
+<nav class="fixed top-0 inset-x-0 z-50 bg-surface dark:bg-surface-dark border-b border-stone-200 dark:border-stone-800">
+  <div class="max-w-2xl mx-auto px-4 h-12 flex items-center justify-between">
+    <% if native_app? %>
+      <div class="w-10">
+        <%= native_back_button_tag %>
+      </div>
+
+      <span class="font-semibold">
+        <%= content_for(:title).presence || "Beervana" %>
+      </span>
+
+      <div class="w-10"></div>
+    <% else %>
+      <%= link_to root_path, class: "flex items-center gap-2 no-underline" do %>
+        <%= image_tag "logo.png", class: "w-7 h-7 rounded-md", alt: "Beervana" %>
+        <span class="font-bold">Beervana</span>
+      <% end %>
+
+      <div class="flex items-center gap-4">
+        <% if user_signed_in? %>
+          <%= link_to "Passport", passport_path, class: "text-sm font-medium no-underline" %>
+          <%= link_to "Profile", profile_path, class: "text-sm font-medium no-underline" %>
+        <% else %>
+          <%= link_to "Sign in", new_session_path, class: "text-sm font-medium no-underline" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</nav>

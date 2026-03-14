@@ -1,0 +1,13 @@
+<% content_for :title, "All breweries" %>
+
+<div class="mt-4">
+  <% unless native_app? %>
+    <h1 class="text-2xl font-bold">All breweries</h1>
+  <% end %>
+
+  <div class="mt-4 space-y-3">
+    <% @breweries.each do |brewery| %>
+      <%= render "breweries/brewery_card", brewery: brewery %>
+    <% end %>
+  </div>
+</div>

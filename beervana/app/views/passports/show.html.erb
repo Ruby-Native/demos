@@ -1,0 +1,44 @@
+<% content_for :title, "Passport" %>
+
+<div class="mt-4">
+  <% unless native_app? %>
+    <h1 class="text-2xl font-bold">Passport</h1>
+  <% end %>
+
+  <div class="mt-4 p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm">
+    <p class="text-3xl font-bold">
+      <%= @stamp_count %> <span class="text-base font-normal text-stone-500 dark:text-stone-400">of <%= @brewery_count %></span>
+    </p>
+    <div class="mt-2 h-2 rounded-full bg-stone-200 dark:bg-stone-800 overflow-hidden">
+      <% percentage = @brewery_count > 0 ? (@stamp_count.to_f / @brewery_count * 100).round : 0 %>
+      <div class="h-full rounded-full bg-brew-600 dark:bg-brew-400 transition-all" style="width: <%= percentage %>%"></div>
+    </div>
+  </div>
+
+  <div class="mt-6 space-y-3">
+    <% if @stamps.any? %>
+      <% @stamps.each do |stamp| %>
+        <%= link_to brewery_path(stamp.brewery), class: "flex items-center justify-between p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm no-underline" do %>
+          <div class="min-w-0">
+            <h2 class="font-semibold"><%= stamp.brewery.name %></h2>
+            <p class="text-sm text-stone-500 dark:text-stone-400 mt-0.5">
+              <% days_ago = (Date.current - stamp.stamped_at.to_date).to_i %>
+              Stamped <%= days_ago == 0 ? "today" : days_ago == 1 ? "yesterday" : "#{time_ago_in_words(days_ago.days.ago)} ago" %>
+            </p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-stone-400 dark:text-stone-600 shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="text-center py-8">
+        <p class="text-stone-500 dark:text-stone-400">No stamps yet.</p>
+        <p class="mt-1 text-sm text-stone-400 dark:text-stone-500">
+          Visit a brewery and stamp it to track your progress.
+        </p>
+        <%= link_to "Explore breweries", root_path, class: "inline-block mt-4 text-sm font-medium text-brew-700 dark:text-brew-400 underline" %>
+      </div>
+    <% end %>
+  </div>
+</div>

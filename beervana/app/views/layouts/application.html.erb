@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <title><%= content_for(:title) || "Beervana" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :ruby_native %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="h-full bg-surface dark:bg-surface-dark text-stone-900 dark:text-stone-100">
+    <%= native_tabs_tag if user_signed_in? %>
+    <%= native_push_tag if user_signed_in? %>
+    <%= render "shared/navbar" %>
+
+    <main class="max-w-2xl mx-auto px-4 pt-14 pb-8">
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </main>
+  </body>
+</html>
