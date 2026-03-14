@@ -20,5 +20,14 @@
       <%= render "shared/flash" %>
       <%= yield %>
     </main>
+
+    <% unless native_app? %>
+      <footer class="max-w-2xl mx-auto px-4 py-8 border-t border-stone-200 dark:border-stone-800">
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-stone-400 dark:text-stone-600">
+          <%= link_to "Terms and conditions", terms_path, class: "hover:text-stone-600 dark:hover:text-stone-400" %>
+          <%= link_to "Privacy policy", privacy_path, class: "hover:text-stone-600 dark:hover:text-stone-400" %>
+        </div>
+      </footer>
+    <% end %>
   </body>
 </html>

@@ -13,7 +13,7 @@ appearance:
 
 tabs:
   - title: Explore
-    path: /
+    path: /explore
     icon: binoculars
   - title: Passport
     path: /passport

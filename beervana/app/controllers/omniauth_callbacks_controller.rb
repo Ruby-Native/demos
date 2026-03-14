@@ -5,7 +5,7 @@ class OmniauthCallbacksController < ApplicationController
   def create
     user = User.from_omniauth(request.env["omniauth.auth"])
     sign_in(user)
-    redirect_to root_path
+    redirect_to explore_path
   end
 
   def failure

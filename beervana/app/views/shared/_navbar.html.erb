@@ -17,6 +17,7 @@
       <% end %>
 
       <div class="flex items-center gap-4">
+        <%= link_to "Explore", explore_path, class: "text-sm font-medium no-underline" %>
         <% if user_signed_in? %>
           <%= link_to "Passport", passport_path, class: "text-sm font-medium no-underline" %>
           <%= link_to "Profile", profile_path, class: "text-sm font-medium no-underline" %>
