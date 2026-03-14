@@ -1,5 +1,7 @@
-PATH
-  remote: ../../gem
+GIT
+  remote: https://github.com/Ruby-Native/gem.git
+  revision: 2365f1ec90dae046702f0c925c350a88871b1881
+  branch: main
   specs:
     ruby_native (0.2.7)
       rails (>= 7.1)
