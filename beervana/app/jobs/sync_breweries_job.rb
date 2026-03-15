@@ -3,7 +3,10 @@ class SyncBreweriesJob < ApplicationJob
 
   def perform
     new_breweries = sync_from_api
-    fetch_assets if new_breweries.any?
+    if new_breweries.any?
+      fetch_assets
+      notify_users(new_breweries)
+    end
   end
 
   private
@@ -95,5 +98,23 @@ class SyncBreweriesJob < ApplicationJob
     Rake::Task["breweries:fetch_photos"].invoke
     Rake::Task["breweries:fetch_maps"].invoke
     Rake::Task["neighborhoods:fetch_maps"].invoke
+  end
+
+  def notify_users(new_breweries)
+    devices = ApplicationPushDevice.all.to_a
+    return if devices.empty?
+
+    count = new_breweries.size
+    neighborhoods = new_breweries.filter_map { |b| b.neighborhood&.name }.uniq
+    body = if neighborhoods.one?
+      "#{count} new #{"brewery".pluralize(count)} added to #{neighborhoods.first}"
+    else
+      "#{count} new #{"brewery".pluralize(count)} added to #{neighborhoods.to_sentence}"
+    end
+
+    ApplicationPushNotification
+      .with_data(path: "/explore")
+      .new(title: "New breweries!", body: body)
+      .deliver_later_to(devices)
   end
 end
