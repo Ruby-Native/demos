@@ -106,11 +106,7 @@ class SyncBreweriesJob < ApplicationJob
 
     count = new_breweries.size
     neighborhoods = new_breweries.filter_map { |b| b.neighborhood&.name }.uniq
-    body = if neighborhoods.one?
-      "#{count} new #{"brewery".pluralize(count)} added to #{neighborhoods.first}"
-    else
-      "#{count} new #{"brewery".pluralize(count)} added to #{neighborhoods.to_sentence}"
-    end
+    body = "#{count} new #{"brewery".pluralize(count)} added to #{neighborhoods.to_sentence}"
 
     ApplicationPushNotification
       .with_data(path: "/explore")
