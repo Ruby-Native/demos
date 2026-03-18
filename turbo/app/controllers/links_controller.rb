@@ -1,8 +1,4 @@
 class LinksController < ApplicationController
-  include SubscriptionGating
-
-  before_action :require_subscription, only: %i[new create]
-
   def index
     @links = current_user.links.includes(:tags).order(created_at: :desc)
     @page_title = "Links"
