@@ -12,7 +12,7 @@
   </head>
 
   <body class="h-full bg-surface dark:bg-surface-dark text-stone-900 dark:text-stone-100">
-    <%= native_tabs_tag if user_signed_in? || params[:app] == "review" %>
+    <%= native_tabs_tag(enabled: user_signed_in? || params[:app] == "review") %>
     <%= native_push_tag if user_signed_in? %>
     <%= render "shared/navbar" unless native_app? %>
 
