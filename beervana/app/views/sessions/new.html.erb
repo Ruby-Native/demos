@@ -5,8 +5,14 @@
   <p class="mt-2 text-stone-500 dark:text-stone-400">Your Portland brewery passport.</p>
 
   <div class="mt-8">
-    <%= button_to "/auth/apple", data: {turbo: false}, class: "w-full rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold py-3 hover:bg-gray-800 dark:hover:bg-gray-200 transition cursor-pointer" do %>
-      Sign in with Apple
+    <% if native_app? %>
+      <%= link_to "/auth/apple", class: "block w-full rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold py-3 hover:bg-gray-800 dark:hover:bg-gray-200 transition text-center no-underline" do %>
+        Sign in with Apple
+      <% end %>
+    <% else %>
+      <%= button_to "/auth/apple", data: {turbo: false}, class: "w-full rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold py-3 hover:bg-gray-800 dark:hover:bg-gray-200 transition cursor-pointer" do %>
+        Sign in with Apple
+      <% end %>
     <% end %>
   </div>
 </div>
