@@ -1,13 +1,17 @@
-import { Head } from "@inertiajs/react"
+import { Head, usePage } from "@inertiajs/react"
+import { NativeNavbar } from "ruby_native/react"
 import HabitRow from "~/components/HabitRow"
 
 export default function Show({ date, habits, completed_count, total_count }) {
+  const { nativeApp } = usePage().props
+
   return (
     <>
       <Head title="Today" />
+      <NativeNavbar title="Today" />
       <div className="px-4 pt-6 pb-2">
         <p className="text-sm text-gray-500">{date}</p>
-        <h1 className="text-2xl font-bold text-gray-900 mt-1">Today</h1>
+        {!nativeApp && <h1 className="text-2xl font-bold text-gray-900 mt-1">Today</h1>}
         <p className="text-sm text-gray-500 mt-1">
           {completed_count} of {total_count} completed
         </p>

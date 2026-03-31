@@ -39,7 +39,7 @@ class HabitsController < ApplicationController
       redirect_to habits_path, notice: "Habit created."
     else
       @page_title = "New habit"
-      render inertia: "Habits/New", props: {
+      render inertia: "Habits/New", status: :unprocessable_entity, props: {
         habit: habit.as_json(only: %i[name description color]),
         errors: habit.errors.full_messages
       }
@@ -53,7 +53,7 @@ class HabitsController < ApplicationController
       redirect_to habits_path, notice: "Habit updated."
     else
       @page_title = "Edit habit"
-      render inertia: "Habits/Edit", props: {
+      render inertia: "Habits/Edit", status: :unprocessable_entity, props: {
         habit: habit.as_json(only: %i[id name description color]),
         errors: habit.errors.full_messages
       }

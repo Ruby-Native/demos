@@ -1,5 +1,10 @@
 <script setup>
-import { Head, Link } from "@inertiajs/vue3"
+import { Head, Link, usePage } from "@inertiajs/vue3"
+import { computed } from "vue"
+import { NativeNavbar, NativeButton } from "ruby_native/vue"
+
+const page = usePage()
+const nativeApp = computed(() => page.props.nativeApp)
 
 defineProps({
   habits: Array,
@@ -8,7 +13,10 @@ defineProps({
 
 <template>
   <Head title="Habits" />
-  <div class="px-4 pt-6 pb-2 flex items-center justify-between">
+  <NativeNavbar title="Habits">
+    <NativeButton icon="plus" href="/habits/new" />
+  </NativeNavbar>
+  <div v-if="!nativeApp" class="px-4 pt-6 pb-2 flex items-center justify-between">
     <h1 class="text-2xl font-bold text-gray-900">Habits</h1>
     <Link
       href="/habits/new"

@@ -1,6 +1,10 @@
 <script setup>
-import { Head, useForm } from "@inertiajs/vue3"
-import { NativeForm } from "ruby_native/vue"
+import { Head, useForm, usePage } from "@inertiajs/vue3"
+import { computed } from "vue"
+import { NativeForm, NativeNavbar, NativeSubmitButton } from "ruby_native/vue"
+
+const page = usePage()
+const nativeApp = computed(() => page.props.nativeApp)
 
 const props = defineProps({
   user: Object,
@@ -21,8 +25,11 @@ function handleSubmit() {
 
 <template>
   <Head title="Edit profile" />
+  <NativeNavbar title="Edit profile">
+    <NativeSubmitButton title="Save" />
+  </NativeNavbar>
   <NativeForm />
-  <div class="px-4 pt-6 pb-4">
+  <div v-if="!nativeApp" class="px-4 pt-6 pb-4">
     <h1 class="text-2xl font-bold text-gray-900">Edit profile</h1>
   </div>
   <div class="px-4">
@@ -58,7 +65,7 @@ function handleSubmit() {
       <button
         type="submit"
         :disabled="form.processing"
-        class="w-full bg-indigo-600 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors"
+        :class="nativeApp ? 'hidden' : 'w-full bg-indigo-600 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors'"
       >
         {{ form.processing ? "Saving..." : "Save profile" }}
       </button>

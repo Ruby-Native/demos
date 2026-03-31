@@ -1,4 +1,9 @@
 <% content_for :title, "Account" %>
+<% content_for :native_signals do %>
+  <%= native_navbar_tag("Account") do |navbar| %>
+    <% navbar.button icon: "pencil", href: edit_account_path %>
+  <% end %>
+<% end %>
 
 <div class="mt-4">
   <h1 class="text-2xl font-bold text-coffee-800 dark:text-coffee-100 <%= "hidden" if native_app? %>">

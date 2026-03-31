@@ -1,4 +1,9 @@
 <% content_for :title, "Rewards" %>
+<% content_for :native_signals do %>
+  <%= native_navbar_tag("Rewards") do |navbar| %>
+    <% navbar.button icon: "bag", href: cart_path %>
+  <% end %>
+<% end %>
 
 <div class="mt-4">
   <h1 class="text-2xl font-bold text-coffee-800 dark:text-coffee-100 <%= "hidden" if native_app? %>">

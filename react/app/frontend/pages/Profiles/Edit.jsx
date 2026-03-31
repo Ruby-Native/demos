@@ -1,7 +1,8 @@
-import { Head, useForm } from "@inertiajs/react"
-import { NativeForm } from "ruby_native/react"
+import { Head, useForm, usePage } from "@inertiajs/react"
+import { NativeForm, NativeNavbar, NativeSubmitButton } from "ruby_native/react"
 
 export default function Edit({ user, errors }) {
+  const { nativeApp } = usePage().props
   const { data, setData, patch, processing } = useForm({
     user: {
       name: user.name || "",
@@ -17,10 +18,15 @@ export default function Edit({ user, errors }) {
   return (
     <>
       <Head title="Edit profile" />
+      <NativeNavbar title="Edit profile">
+        <NativeSubmitButton title="Save" />
+      </NativeNavbar>
       <NativeForm />
-      <div className="px-4 pt-6 pb-4">
-        <h1 className="text-2xl font-bold text-gray-900">Edit profile</h1>
-      </div>
+      {!nativeApp && (
+        <div className="px-4 pt-6 pb-4">
+          <h1 className="text-2xl font-bold text-gray-900">Edit profile</h1>
+        </div>
+      )}
       <div className="px-4">
         <form onSubmit={handleSubmit} className="space-y-6">
           {errors?.length > 0 && (
@@ -60,7 +66,7 @@ export default function Edit({ user, errors }) {
           <button
             type="submit"
             disabled={processing}
-            className="w-full bg-indigo-600 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors"
+            className={nativeApp ? "hidden" : "w-full bg-indigo-600 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors"}
           >
             {processing ? "Saving..." : "Save profile"}
           </button>

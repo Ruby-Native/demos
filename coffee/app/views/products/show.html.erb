@@ -1,5 +1,10 @@
 <% content_for :title, @product.name %>
 <% content_for :native_signals, native_form_tag %>
+<% content_for :native_signals do %>
+  <%= native_navbar_tag(@product.name) do |navbar| %>
+    <% navbar.button icon: "bag", href: cart_path %>
+  <% end %>
+<% end %>
 
 <%
   size_adjustments = Product::SIZE_ADJUSTMENTS

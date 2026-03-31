@@ -1,4 +1,9 @@
 <% content_for :title, "Order ##{@order.id}" %>
+<% content_for :native_signals do %>
+  <%= native_navbar_tag("Order ##{@order.id}") do |navbar| %>
+    <% navbar.button icon: "bag", href: cart_path %>
+  <% end %>
+<% end %>
 
 <div class="mt-4">
   <%= turbo_stream_from "order_#{@order.id}" %>

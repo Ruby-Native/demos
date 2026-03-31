@@ -6,6 +6,7 @@ import Navbar from "~/components/Navbar.vue"
 import Flash from "~/components/Flash.vue"
 
 const page = usePage()
+const nativeApp = computed(() => page.props.nativeApp)
 const userSignedIn = computed(() => page.props.user_signed_in)
 </script>
 
@@ -16,7 +17,7 @@ const userSignedIn = computed(() => page.props.user_signed_in)
       <NativePush />
     </template>
     <Navbar />
-    <div class="pt-12">
+    <div :class="nativeApp ? '' : 'pt-12'">
       <Flash />
       <main class="max-w-lg mx-auto">
         <slot />

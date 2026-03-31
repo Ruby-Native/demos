@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
       redirect_to profile_path, notice: "Profile updated."
     else
       @page_title = "Edit profile"
-      render inertia: "Profiles/Edit", props: {
+      render inertia: "Profiles/Edit", status: :unprocessable_entity, props: {
         user: current_user.as_json(only: %i[id name email]),
         errors: current_user.errors.full_messages
       }

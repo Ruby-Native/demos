@@ -1,9 +1,10 @@
-import { useForm } from "@inertiajs/react"
+import { useForm, usePage } from "@inertiajs/react"
 import { NativeForm } from "ruby_native/react"
 
 const COLORS = ["#EF4444", "#F59E0B", "#10B981", "#3B82F6", "#6366F1", "#8B5CF6", "#EC4899", "#4F46E5"]
 
 export default function HabitForm({ habit, action, method = "post", errors }) {
+  const { nativeApp } = usePage().props
   const { data, setData, processing, submit } = useForm({
     habit: {
       name: habit.name || "",
@@ -78,7 +79,7 @@ export default function HabitForm({ habit, action, method = "post", errors }) {
         <button
           type="submit"
           disabled={processing}
-          className="w-full bg-indigo-600 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors"
+          className={nativeApp ? "hidden" : "w-full bg-indigo-600 text-white rounded-lg px-4 py-2.5 font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors"}
         >
           {processing ? "Saving..." : "Save habit"}
         </button>

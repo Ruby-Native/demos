@@ -1,6 +1,11 @@
 <script setup>
-import { Head } from "@inertiajs/vue3"
+import { Head, usePage } from "@inertiajs/vue3"
+import { computed } from "vue"
+import { NativeNavbar } from "ruby_native/vue"
 import HabitRow from "~/components/HabitRow.vue"
+
+const page = usePage()
+const nativeApp = computed(() => page.props.nativeApp)
 
 defineProps({
   date: String,
@@ -12,9 +17,10 @@ defineProps({
 
 <template>
   <Head title="Today" />
+  <NativeNavbar title="Today" />
   <div class="px-4 pt-6 pb-2">
     <p class="text-sm text-gray-500">{{ date }}</p>
-    <h1 class="text-2xl font-bold text-gray-900 mt-1">Today</h1>
+    <h1 v-if="!nativeApp" class="text-2xl font-bold text-gray-900 mt-1">Today</h1>
     <p class="text-sm text-gray-500 mt-1">
       {{ completed_count }} of {{ total_count }} completed
     </p>

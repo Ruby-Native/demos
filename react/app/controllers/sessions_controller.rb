@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     else
       flash.now.alert = "Invalid email or password."
       @page_title = "Sign in"
-      render inertia: "Sessions/New"
+      render inertia: "Sessions/New", status: :unprocessable_entity
     end
   end
 

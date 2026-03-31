@@ -1,7 +1,9 @@
-import { Head, router } from "@inertiajs/react"
+import { Head, router, usePage } from "@inertiajs/react"
+import { NativeNavbar, NativeSubmitButton } from "ruby_native/react"
 import HabitForm from "~/components/HabitForm"
 
 export default function Edit({ habit, errors }) {
+  const { nativeApp } = usePage().props
   function handleDelete() {
     if (confirm("Delete this habit? This cannot be undone.")) {
       router.delete(`/habits/${habit.id}`)
@@ -11,9 +13,14 @@ export default function Edit({ habit, errors }) {
   return (
     <>
       <Head title="Edit habit" />
-      <div className="px-4 pt-6 pb-4">
-        <h1 className="text-2xl font-bold text-gray-900">Edit habit</h1>
-      </div>
+      <NativeNavbar title="Edit habit">
+        <NativeSubmitButton title="Save" />
+      </NativeNavbar>
+      {!nativeApp && (
+        <div className="px-4 pt-6 pb-4">
+          <h1 className="text-2xl font-bold text-gray-900">Edit habit</h1>
+        </div>
+      )}
       <div className="px-4">
         <HabitForm
           habit={habit}

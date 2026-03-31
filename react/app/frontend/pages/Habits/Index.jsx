@@ -1,18 +1,26 @@
-import { Head, Link } from "@inertiajs/react"
+import { Head, Link, usePage } from "@inertiajs/react"
+import { NativeNavbar, NativeButton } from "ruby_native/react"
 
 export default function Index({ habits }) {
+  const { nativeApp } = usePage().props
+
   return (
     <>
       <Head title="Habits" />
-      <div className="px-4 pt-6 pb-2 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Habits</h1>
-        <Link
-          href="/habits/new"
-          className="bg-indigo-600 text-white text-sm font-medium rounded-lg px-3 py-1.5 hover:bg-indigo-700 transition-colors"
-        >
-          New habit
-        </Link>
-      </div>
+      <NativeNavbar title="Habits">
+        <NativeButton icon="plus" href="/habits/new" />
+      </NativeNavbar>
+      {!nativeApp && (
+        <div className="px-4 pt-6 pb-2 flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-gray-900">Habits</h1>
+          <Link
+            href="/habits/new"
+            className="bg-indigo-600 text-white text-sm font-medium rounded-lg px-3 py-1.5 hover:bg-indigo-700 transition-colors"
+          >
+            New habit
+          </Link>
+        </div>
+      )}
 
       <div className="mt-2 divide-y divide-gray-100">
         {habits.length === 0 ? (

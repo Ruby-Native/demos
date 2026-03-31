@@ -1,5 +1,10 @@
 <% content_for :title, "Edit profile" %>
 <% content_for :native_signals, native_form_tag %>
+<% content_for :native_signals do %>
+  <%= native_navbar_tag("Edit profile") do |navbar| %>
+    <% navbar.submit_button title: "Save" %>
+  <% end %>
+<% end %>
 
 <div class="mt-4">
   <h1 class="text-2xl font-bold text-coffee-800 dark:text-coffee-100 <%= "hidden" if native_app? %>">

@@ -1,6 +1,11 @@
 <script setup>
-import { Head, router } from "@inertiajs/vue3"
+import { Head, router, usePage } from "@inertiajs/vue3"
+import { computed } from "vue"
+import { NativeNavbar, NativeSubmitButton } from "ruby_native/vue"
 import HabitForm from "~/components/HabitForm.vue"
+
+const page = usePage()
+const nativeApp = computed(() => page.props.nativeApp)
 
 const props = defineProps({
   habit: Object,
@@ -16,7 +21,10 @@ function handleDelete() {
 
 <template>
   <Head title="Edit habit" />
-  <div class="px-4 pt-6 pb-4">
+  <NativeNavbar title="Edit habit">
+    <NativeSubmitButton title="Save" />
+  </NativeNavbar>
+  <div v-if="!nativeApp" class="px-4 pt-6 pb-4">
     <h1 class="text-2xl font-bold text-gray-900">Edit habit</h1>
   </div>
   <div class="px-4">
