@@ -14,7 +14,7 @@ class AccountsController < ApplicationController
 
   def update
     if current_user.update(account_params)
-      redirect_to account_path, notice: "Account updated."
+      redirect_to account_path
     else
       render inertia: "Accounts/Edit", props: {
         user: current_user.slice(:id, :name, :email, :favorite_store),
