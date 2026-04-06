@@ -1,10 +1,7 @@
 appearance:
   tint_color: "#4F46E5"
   background_color:
-    light: "#FFFFFF"
-    dark: "#1C1C1E"
-  status_bar_color:
-    light: "#FFFFFF"
+    light: "#F9FAFB"
     dark: "#1C1C1E"
 
 tabs:
@@ -17,3 +14,12 @@ tabs:
   - title: Profile
     path: /profile
     icon: person
+
+screenshots:
+  paths:
+    - /today
+    - /habits
+    - /profile
+
+ruby_native:
+  app_id: app_d4zsssgz

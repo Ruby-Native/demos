@@ -16,11 +16,7 @@
     <%= native_push_tag if user_signed_in? %>
     <%= render "shared/navbar" unless native_app? %>
 
-    <% if native_app? %>
-      <main class="max-w-2xl mx-auto px-4 pb-8" style="padding-top: env(safe-area-inset-top)">
-    <% else %>
-      <main class="max-w-2xl mx-auto px-4 pt-14 pb-8">
-    <% end %>
+      <main class="max-w-2xl mx-auto px-4 pb-8 native-inset <%= "pt-14" unless native_app? %>">
       <%= render "shared/flash" %>
       <%= yield %>
     </main>

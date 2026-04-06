@@ -14,7 +14,7 @@ const userSignedIn = computed(() => page.props.user_signed_in)
       <div data-native-tabs hidden></div>
     </template>
     <Navbar />
-    <div class="pt-12">
+    <div class="pt-12 native-inset">
       <Flash />
       <main class="max-w-lg mx-auto">
         <slot />

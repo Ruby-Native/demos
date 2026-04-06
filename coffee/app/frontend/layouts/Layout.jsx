@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <div className="min-h-screen bg-coffee-50 dark:bg-coffee-900">
       {user_signed_in && <><NativeTabs /><NativePush /></>}
       <Navbar />
-      <div className={nativeApp ? "" : "pt-14"}>
+      <div className={`native-inset ${nativeApp ? "" : "pt-14"}`}>
         <Flash />
         <main className="max-w-[480px] mx-auto px-4 pb-8">{children}</main>
       </div>

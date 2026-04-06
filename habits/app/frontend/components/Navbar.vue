@@ -12,7 +12,7 @@ function goBack() {
 </script>
 
 <template>
-  <nav v-if="userSignedIn" class="fixed top-0 left-0 right-0 z-10 bg-white border-b border-gray-200 px-4">
+  <nav v-if="userSignedIn" class="fixed top-0 left-0 right-0 z-10 bg-white border-b border-gray-200 px-4 native-inset-top">
     <div class="max-w-lg mx-auto relative flex items-center justify-end h-12">
       <button class="native-back-button text-indigo-600 absolute left-0" @click="goBack">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">

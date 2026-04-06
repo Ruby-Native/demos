@@ -10,9 +10,6 @@ appearance:
   background_color:
     light: "#FAFAFA"
     dark: "#171717"
-  status_bar_color:
-    light: "#FAFAFA"
-    dark: "#171717"
 
 tabs:
   - title: Explore
@@ -32,4 +29,4 @@ screenshots:
     - /profile
 
 ruby_native:
-  app_id: app_040swajr
+  app_id: app_d4zsssgz

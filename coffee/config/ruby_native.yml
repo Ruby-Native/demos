@@ -8,9 +8,6 @@ appearance:
   background_color:
     light: "#FAF7F2"
     dark: "#1C1410"
-  status_bar_color:
-    light: "#FAF7F2"
-    dark: "#1C1410"
 
 tabs:
   - title: Menu
