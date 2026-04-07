@@ -1,0 +1,56 @@
+<% content_for :title, "Beervana Pro" %>
+
+<%= native_navbar_tag("Beervana Pro") %>
+
+<div class="mt-4">
+
+  <div class="mt-6 space-y-3">
+    <div class="flex items-start gap-3">
+      <span class="text-brew-600 dark:text-brew-400 text-lg">✓</span>
+      <div>
+        <p class="font-medium">Unlock <%= @brewery_count.round(-1) %>+ breweries</p>
+        <p class="text-sm text-stone-500 dark:text-stone-400">Explore more breweries across Portland.</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <span class="text-brew-600 dark:text-brew-400 text-lg">✓</span>
+      <div>
+        <p class="font-medium">Plan your visits</p>
+        <p class="text-sm text-stone-500 dark:text-stone-400">Bookmark breweries for your next crawl.</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-3">
+      <span class="text-brew-600 dark:text-brew-400 text-lg">✓</span>
+      <div>
+        <p class="font-medium">Support Beervana</p>
+        <p class="text-sm text-stone-500 dark:text-stone-400">Help keep the app running and improving.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 text-center">
+    <button data-native-purchase="<%= @product_id %>"
+            data-customer-id="<%= current_user.id %>"
+            data-success-path="<%= explore_path %>"
+            class="w-full rounded-xl bg-brew-800 dark:bg-brew-200 text-white dark:text-stone-900 font-semibold px-8 py-4 text-base">
+      Subscribe - <span data-native-price="<%= @product_id %>">$0.99/year</span>
+    </button>
+
+    <button data-native-restore class="mt-3 text-sm text-brew-700 dark:text-brew-400 font-medium">
+      Restore purchase
+    </button>
+  </div>
+
+  <div class="mt-6 text-center text-xs text-stone-400 dark:text-stone-500 space-y-1">
+    <p>
+      Payment will be charged to your Apple ID account at confirmation of purchase.
+      Subscription automatically renews unless canceled at least 24 hours before the end of the current period.
+      You can manage and cancel your subscriptions in your Apple ID account settings.
+    </p>
+    <p>
+      <%= link_to "Terms and conditions", terms_path, class: "underline" %> · <%= link_to "Privacy policy", privacy_path, class: "underline" %>
+    </p>
+  </div>
+</div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get :progress
   end
   resource :profile, only: [ :show, :destroy ]
+  resource :paywall, only: :show
 
   get "/auth/:provider", to: redirect("/session/new")
   get "/auth/:provider/callback", to: "omniauth_callbacks#create"

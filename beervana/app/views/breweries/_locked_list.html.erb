@@ -12,14 +12,10 @@
         <%= message %>
       </p>
       <% if native_app? && user_signed_in? %>
-        <button data-native-purchase="app.beervana.pro.annual"
-                data-customer-id="<%= current_user.id %>"
-                data-success-path="<%= request.path %>"
-                class="mt-4 rounded-xl bg-brew-800 dark:bg-brew-200 text-white dark:text-stone-900 font-semibold px-8 py-3 text-sm">
-          Upgrade - <span data-native-price="com.beervana.annual">$0.99/year</span>
-        </button>
+        <%= link_to "Upgrade", paywall_path,
+          class: "mt-4 inline-block rounded-xl bg-brew-800 dark:bg-brew-200 text-white dark:text-stone-900 font-semibold px-8 py-3 text-sm no-underline" %>
       <% elsif native_app? %>
-        <%= link_to "Upgrade - $0.99/year", new_session_path,
+        <%= link_to "Upgrade", new_session_path,
           class: "mt-4 inline-block rounded-xl bg-brew-800 dark:bg-brew-200 text-white dark:text-stone-900 font-semibold px-8 py-3 text-sm no-underline" %>
       <% else %>
         <%= link_to "Upgrade in the iOS app", "https://apps.apple.com/us/app/beervana-pdx-brewery-passport/id6760509246",
