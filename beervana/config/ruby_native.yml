@@ -1,5 +1,5 @@
 app:
-  mode: normal
+  mode: advanced
 
 auth:
   oauth_paths:
