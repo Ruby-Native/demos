@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/Ruby-Native/gem.git
+  revision: ba7272e76b097baf2ddd0b1f6e95245a8a45f959
+  branch: main
+  specs:
+    ruby_native (0.5.3)
+      jwt (~> 2.0)
+      rails (>= 7.1)
+      rqrcode (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -155,7 +165,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    jwt (3.1.2)
+    jwt (2.10.2)
       base64
     logger (1.7.0)
     loofah (2.25.1)
@@ -305,9 +315,6 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 2.0)
     rqrcode_core (2.1.0)
-    ruby_native (0.5.0)
-      rails (>= 7.1)
-      rqrcode (~> 3.0)
     securerandom (0.4.1)
     signet (0.21.0)
       addressable (~> 2.8)
@@ -395,7 +402,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.3)
-  ruby_native
+  ruby_native!
   solid_cable
   solid_queue
   sqlite3 (>= 2.1)
@@ -455,7 +462,7 @@ CHECKSUMS
   irb (1.17.0) sha256=168c4ddb93d8a361a045c41d92b2952c7a118fa73f23fe14e55609eb7a863aae
   json (2.19.3) sha256=289b0bb53052a1fa8c34ab33cc750b659ba14a5c45f3fcf4b18762dc67c78646
   json-jwt (1.17.0) sha256=6ff99026b4c54281a9431179f76ceb81faa14772d710ef6169785199caadc4cc
-  jwt (3.1.2) sha256=af6991f19a6bb4060d618d9add7a66f0eeb005ac0bc017cd01f63b42e122d535
+  jwt (2.10.2) sha256=31e1ee46f7359883d5e622446969fe9c118c3da87a0b1dca765ce269c3a0c4f4
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   loofah (2.25.1) sha256=d436c73dbd0c1147b16c4a41db097942d217303e1f7728704b37e4df9f6d2e04
   mail (2.9.0) sha256=6fa6673ecd71c60c2d996260f9ee3dd387d4673b8169b502134659ece6d34941
@@ -512,7 +519,7 @@ CHECKSUMS
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
   rqrcode (3.2.0) sha256=64c1494ca6bb67d731330f38b50e3fd09eeab4f5dcd04b608e21218d1d0b9542
   rqrcode_core (2.1.0) sha256=f303b85df89c1b8fc5ee8dc19808c9dc4330e6329b660d99d4a8cbb36ca13051
-  ruby_native (0.5.0) sha256=d9208eef612d72177a5e994990bc4cb7befa58e6721d0d31b43d44d20b2d65e5
+  ruby_native (0.5.3)
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   signet (0.21.0) sha256=d617e9fbf24928280d39dcfefba9a0372d1c38187ffffd0a9283957a10a8cd5b
   snaky_hash (2.0.3) sha256=25a3d299566e8153fb02fa23fd9a9358845950f7a523ddbbe1fa1e0d79a6d456
