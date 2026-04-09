@@ -1,7 +1,7 @@
-import { Head, usePage } from "@inertiajs/react"
+import { Head, Link, usePage } from "@inertiajs/react"
 import { NativeNavbar, NativeButton } from "ruby-native/react"
 
-export default function Show({ points, next_reward_at, progress, activities, rewards }) {
+export default function Show({ points, next_reward_at, progress, activities, rewards, featured_item }) {
   const { nativeApp } = usePage().props
 
   return (
@@ -31,7 +31,24 @@ export default function Show({ points, next_reward_at, progress, activities, rew
             <div className="h-full bg-coffee-800 dark:bg-coffee-200 rounded-full transition-all" style={{ width: `${progress}%` }} />
           </div>
           <p className="text-xs text-coffee-500 dark:text-coffee-400 mt-2">{next_reward_at - points} points until a free drink</p>
+          <Link
+            href="/menu"
+            className="block mt-3 text-sm font-medium text-coffee-800 dark:text-coffee-200 no-underline"
+          >
+            Browse the menu &rarr;
+          </Link>
         </div>
+
+        {/* Featured promo */}
+        {featured_item && (
+          <Link
+            href={featured_item.path}
+            className="block mt-4 p-4 rounded-2xl bg-white dark:bg-coffee-800 shadow-sm no-underline"
+          >
+            <p className="text-xs font-semibold text-green-700 dark:text-green-400 uppercase tracking-wide">Double points this week</p>
+            <p className="text-sm font-medium text-coffee-800 dark:text-coffee-100 mt-1">Order a {featured_item.name} and earn 2x rewards &rarr;</p>
+          </Link>
+        )}
 
         {/* Available rewards */}
         <div className="mt-6">

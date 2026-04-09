@@ -2,6 +2,7 @@ class RewardsController < ApplicationController
   def show
     points = current_user.reward_points
     next_reward_at = 500
+    featured = Product.find_by(name: "Iced latte")
     render inertia: "Rewards/Show", props: {
       points: points,
       next_reward_at: next_reward_at,
@@ -13,7 +14,11 @@ class RewardsController < ApplicationController
         {name: "Free drip coffee", points: 150},
         {name: "Free pastry", points: 250},
         {name: "Free any drink", points: 500}
-      ]
+      ],
+      featured_item: featured && {
+        name: featured.name,
+        path: category_item_path(featured.category, featured)
+      }
     }
   end
 end

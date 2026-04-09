@@ -111,6 +111,18 @@
     <% end %>
   <% end %>
 
+  <%# Passport link (demonstrates tab routing) %>
+  <% if user_signed_in? %>
+    <%= link_to passport_path, class: "block -mx-4 sm:mx-0 sm:rounded-lg bg-white dark:bg-stone-900 sm:shadow-sm px-4 sm:p-4 py-3 no-underline" do %>
+      <div class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brew-600 dark:text-brew-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+        </svg>
+        <span class="text-sm font-medium text-stone-800 dark:text-stone-200">View your passport</span>
+      </div>
+    <% end %>
+  <% end %>
+
   <%# Contact card %>
   <% if @brewery.phone.present? || @brewery.website_url.present? %>
     <div class="-mx-4 sm:mx-0 sm:rounded-lg bg-white dark:bg-stone-900 sm:shadow-sm divide-y divide-stone-100 dark:divide-stone-800">

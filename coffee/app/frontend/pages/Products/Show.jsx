@@ -1,4 +1,4 @@
-import { Head, router, usePage } from "@inertiajs/react"
+import { Head, Link, router, usePage } from "@inertiajs/react"
 import { NativeNavbar, NativeButton, NativeForm } from "ruby-native/react"
 import { useState, useMemo } from "react"
 
@@ -153,6 +153,13 @@ export default function Show({ product, size_adjustments, extras }) {
             Add to order &middot; {formatPrice(totalPrice)}
           </button>
         </form>
+
+        <Link
+          href="/rewards"
+          className="block mt-4 p-4 rounded-xl bg-white dark:bg-coffee-800 shadow-sm text-center text-sm font-medium text-coffee-700 dark:text-coffee-300 no-underline"
+        >
+          Earn points with every order &rarr;
+        </Link>
       </div>
     </>
   )
