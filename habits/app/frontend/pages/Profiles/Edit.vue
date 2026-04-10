@@ -1,5 +1,6 @@
 <script setup>
 import { Head, useForm } from "@inertiajs/vue3"
+import { NativeForm } from "ruby-native/vue"
 
 const props = defineProps({
   user: Object,
@@ -20,7 +21,7 @@ function handleSubmit() {
 
 <template>
   <Head title="Edit profile" />
-  <div data-native-form hidden></div>
+  <NativeForm />
   <div class="px-4 pt-6 pb-4">
     <h1 class="text-2xl font-bold text-gray-900">Edit profile</h1>
   </div>

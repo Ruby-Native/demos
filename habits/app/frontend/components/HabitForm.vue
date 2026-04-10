@@ -1,5 +1,6 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3"
+import { NativeForm } from "ruby-native/vue"
 
 const props = defineProps({
   habit: Object,
@@ -24,7 +25,7 @@ function handleSubmit() {
 </script>
 
 <template>
-  <div data-native-form hidden></div>
+  <NativeForm />
   <form @submit.prevent="handleSubmit" class="space-y-6">
     <div v-if="errors?.length > 0" class="bg-red-50 border border-red-200 rounded-lg p-4">
       <p v-for="(error, i) in errors" :key="i" class="text-sm text-red-800">{{ error }}</p>
