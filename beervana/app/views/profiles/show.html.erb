@@ -5,6 +5,14 @@
     <h1 class="text-2xl font-bold">Profile</h1>
   <% end %>
 
+  <%= native_navbar_tag do |navbar| %>
+    <% navbar.button "Menu", icon: "line.3.horizontal", position: "leading" do |menu| %>
+      <% menu.item "Sign out", click: "#sign-out-button" %>
+      <% menu.item "Delete account", click: "#delete-account-button" %>
+    <% end %>
+    <% navbar.button "Edit", icon: "pencil", href: edit_profile_path %>
+  <% end %>
+
   <div class="mt-4 p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm">
     <p class="font-semibold"><%= current_user.name || "Beervana user" %></p>
     <% if current_user.email.present? %>
@@ -25,9 +33,10 @@
     </div>
   </div>
 
-  <div class="mt-6 space-y-3">
-    <%= button_to "Sign out", session_path, method: :delete, class: "w-full p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm text-left font-medium text-red-600 dark:text-red-400 cursor-pointer" %>
-    <%= button_to "Delete account", profile_path, method: :delete, class: "w-full p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm text-left font-medium text-red-600 dark:text-red-400 cursor-pointer", data: { turbo_confirm: "This will permanently delete your account and all your stamps and bookmarks. Are you sure?" } %>
+  <div class="mt-6 space-y-3 native-hidden">
+    <%= link_to "Edit profile", edit_profile_path, class: "block w-full p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm text-left font-medium text-stone-900 dark:text-stone-100" %>
+    <%= button_to "Sign out", session_path, id: "sign-out-button", method: :delete, class: "w-full p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm text-left font-medium text-red-600 dark:text-red-400 cursor-pointer" %>
+    <%= button_to "Delete account", profile_path, id: "delete-account-button", method: :delete, class: "w-full p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm text-left font-medium text-red-600 dark:text-red-400 cursor-pointer", data: { turbo_confirm: "This will permanently delete your account and all your stamps and bookmarks. Are you sure?" } %>
   </div>
 
   <div class="mt-8 text-center">

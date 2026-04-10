@@ -1,0 +1,37 @@
+<% content_for :title, "Edit profile" %>
+
+<%= native_form_tag %>
+
+<%= native_navbar_tag "Edit profile" do |navbar| %>
+  <% navbar.submit_button %>
+<% end %>
+
+<div class="mt-4">
+  <% unless native_app? %>
+    <h1 class="text-2xl font-bold">Edit profile</h1>
+  <% end %>
+
+  <%= form_with model: current_user, url: profile_path, method: :patch, class: "mt-4 space-y-4" do |form| %>
+    <% if current_user.errors.any? %>
+      <div class="p-4 rounded-2xl bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-200">
+        <ul class="list-disc list-inside text-sm">
+          <% current_user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="p-4 rounded-2xl bg-white dark:bg-stone-900 shadow-sm">
+      <label class="block text-xs font-medium text-stone-500 dark:text-stone-400 mb-1" for="user_name">Name</label>
+      <%= form.text_field :name, id: "user_name", class: "w-full bg-transparent text-base font-medium text-stone-900 dark:text-stone-100 focus:outline-none", autofocus: true %>
+    </div>
+
+    <div class="native-hidden">
+      <%= form.submit "Save",
+                       id: "save-profile-button",
+                       class: "w-full p-4 rounded-2xl bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-sm font-medium cursor-pointer",
+                       data: { turbo_submits_with: "Saving..." } %>
+    </div>
+  <% end %>
+</div>

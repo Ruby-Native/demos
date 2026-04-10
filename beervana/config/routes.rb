@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource :passport, only: [ :show ] do
     get :progress
   end
-  resource :profile, only: [ :show, :destroy ]
+  resource :profile, only: [ :show, :edit, :update, :destroy ]
   resource :paywall, only: :show
 
   get "/auth/:provider", to: redirect("/session/new")
