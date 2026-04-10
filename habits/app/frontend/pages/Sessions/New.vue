@@ -1,6 +1,6 @@
 <script setup>
 import { Head, useForm } from "@inertiajs/vue3"
-import { NativeForm } from "ruby-native/vue"
+import { NativeForm } from "@ruby-native/vue"
 
 const form = useForm({
   email: "user@example.com",

@@ -1,5 +1,5 @@
 import { Head, useForm, usePage } from "@inertiajs/react"
-import { NativeForm } from "ruby-native/react"
+import { NativeForm } from "@ruby-native/react"
 
 New.layout = (page) => page
 

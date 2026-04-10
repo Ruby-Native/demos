@@ -1,7 +1,7 @@
 <script setup>
 import { usePage } from "@inertiajs/vue3"
 import { computed } from "vue"
-import { NativeTabs } from "ruby-native/vue"
+import { NativeTabs } from "@ruby-native/vue"
 import Navbar from "~/components/Navbar.vue"
 import Flash from "~/components/Flash.vue"
 

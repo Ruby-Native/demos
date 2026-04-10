@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3"
-import { NativeForm } from "ruby-native/vue"
+import { NativeForm } from "@ruby-native/vue"
 
 const props = defineProps({
   habit: Object,

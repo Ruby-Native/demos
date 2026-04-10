@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@inertiajs/vue3": "^2.0.0",
+    "@ruby-native/vue": "^0.6.0",
     "@vitejs/plugin-vue": "^5.2.0",
-    "ruby-native": "github:ruby-native/gem#main",
     "vue": "^3.5.0"
   }
 }

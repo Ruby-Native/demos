@@ -5,11 +5,11 @@ import tailwindcss from "@tailwindcss/vite"
 import { resolve } from "path"
 import { existsSync } from "fs"
 
-const localGem = resolve(__dirname, "../../gem/app/javascript/ruby_native")
-const localGemAliases = existsSync(localGem)
+const localGemPackages = resolve(__dirname, "../../gem/packages")
+const localGemAliases = existsSync(localGemPackages)
   ? {
-      "ruby-native/react": resolve(localGem, "react.js"),
-      "ruby-native/vue": resolve(localGem, "vue.js"),
+      "@ruby-native/react": resolve(localGemPackages, "react/index.js"),
+      "@ruby-native/vue": resolve(localGemPackages, "vue/index.js"),
     }
   : {}
 
