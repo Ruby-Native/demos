@@ -1,0 +1,10 @@
+<% content_for :title, "New todo" %>
+
+<%= native_form_tag %>
+<%= native_navbar_tag("New todo") do |navbar| %>
+  <% navbar.submit_button title: "Save" %>
+<% end %>
+
+<h1 class="<%= "native-hidden" if native_app? %>">New todo</h1>
+
+<%= render "form", todo: @todo %>

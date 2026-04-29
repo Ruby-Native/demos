@@ -1,0 +1,34 @@
+<li>
+  <% if todo.completed? %>
+    <%= button_to uncomplete_todo_path(todo),
+          method: :patch,
+          form: { class: "row-status-form" },
+          class: "row-status-button",
+          data: native_haptic_data(:impact) do %>
+      <%= status_icon(todo) %>
+    <% end %>
+  <% else %>
+    <%= button_to complete_todo_path(todo),
+          method: :patch,
+          form: { class: "row-status-form" },
+          class: "row-status-button",
+          data: native_haptic_data(:success) do %>
+      <%= status_icon(todo) %>
+    <% end %>
+  <% end %>
+
+  <%= link_to todo, class: "row-link" do %>
+    <div class="todo-row-body">
+      <span class="todo-title <%= 'done' if todo.completed? %>"><%= todo.title %></span>
+      <% if todo.completed? %>
+        <span class="todo-meta">Completed <%= todo.completed_at.strftime("%b %-d") %></span>
+      <% elsif todo.description.present? %>
+        <span class="todo-meta"><%= todo.description.truncate(60) %></span>
+      <% end %>
+    </div>
+    <% unless todo.completed? %>
+      <%= due_chip(todo.due_at) %>
+    <% end %>
+    <%= chevron_icon %>
+  <% end %>
+</li>

@@ -1,0 +1,22 @@
+<% content_for :title, "Edit profile" %>
+
+<%= native_form_tag %>
+<%= native_navbar_tag("Edit profile") do |navbar| %>
+  <% navbar.submit_button title: "Save" %>
+<% end %>
+
+<h1 class="<%= "native-hidden" if native_app? %>">Edit profile</h1>
+
+<%= form_with model: Current.user, url: profile_path, method: :patch do |form| %>
+  <div class="field">
+    <%= form.label :email_address, "Email" %>
+    <%= form.email_field :email_address, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar, "Profile photo" %>
+    <%= form.file_field :avatar, accept: "image/*" %>
+  </div>
+
+  <%= form.submit "Save", class: "native-hidden" %>
+<% end %>

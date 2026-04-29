@@ -1,0 +1,23 @@
+<% content_for :title, @todo.title %>
+
+<%= native_navbar_tag(@todo.title) do |navbar| %>
+  <% navbar.button icon: "pencil", href: edit_todo_path(@todo) %>
+<% end %>
+
+<div class="detail">
+  <% if @todo.due_at %>
+    <p class="detail-meta">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <path d="M16 2v4M8 2v4M3 10h18"/>
+      </svg>
+      <%= @todo.due_at.strftime("%A, %b %-d at %-l:%M %p") %>
+    </p>
+  <% end %>
+
+  <h1 class="detail-title"><%= @todo.title %></h1>
+
+  <% if @todo.description.present? %>
+    <p class="detail-description"><%= @todo.description %></p>
+  <% end %>
+</div>

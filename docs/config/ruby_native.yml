@@ -1,0 +1,23 @@
+app:
+  mode: normal
+
+appearance:
+  tint_color: "#0d9488"
+  background_color:
+    light: "#f2f2f7"
+    dark: "#000000"
+
+tabs:
+  - title: Today
+    path: /today
+    icon: sun.max
+  - title: Inbox
+    path: /inbox
+    icon: tray
+    badge: true
+  - title: Done
+    path: /done
+    icon: checkmark.circle
+  - title: Profile
+    path: /profile
+    icon: person

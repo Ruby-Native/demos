@@ -1,0 +1,28 @@
+<% content_for :title, "Inbox" %>
+
+<%= native_navbar_tag("Inbox") do |navbar| %>
+  <% navbar.button icon: "ellipsis.circle", position: :leading do |menu| %>
+    <% menu.item "Sort by due date", href: inbox_path(sort: "due"),     icon: "calendar", selected: @sort == "due" %>
+    <% menu.item "Sort by created",  href: inbox_path(sort: "created"), icon: "clock",    selected: @sort == "created" %>
+  <% end %>
+<% end %>
+<%= native_fab_tag(icon: "plus", href: new_todo_path) %>
+<%= web_fab(href: new_todo_path, label: "New todo") %>
+<%= native_badge_tag(tab: @todos.size) %>
+
+<h1 class="<%= "native-hidden" if native_app? %>">Inbox</h1>
+
+<% if @todos.any? %>
+  <ul class="todos">
+    <%= render partial: "todos/row", collection: @todos, as: :todo %>
+  </ul>
+<% else %>
+  <div class="empty">
+    <div class="empty-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+    </div>
+    <p>Inbox zero.</p>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<%= form_with model: todo do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, "Notes" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :due_at, "Due date" %>
+    <%= form.datetime_field :due_at %>
+  </div>
+
+  <%= form.submit class: "native-hidden" %>
+<% end %>

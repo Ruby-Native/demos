@@ -1,0 +1,38 @@
+<div class="auth-card">
+  <h1>Sign in</h1>
+
+  <% if flash[:alert] %>
+    <p style="color: var(--danger); margin-bottom: 1rem;"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p style="color: var(--accent); margin-bottom: 1rem;"><%= flash[:notice] %></p>
+  <% end %>
+
+  <%= form_with url: session_path do |form| %>
+    <div class="field">
+      <%= form.label :email_address, "Email" %>
+      <%= form.email_field :email_address,
+            required: true,
+            autofocus: true,
+            autocomplete: "username",
+            value: params[:email_address] || (Rails.env.development? ? "demo@example.com" : nil) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password,
+            required: true,
+            autocomplete: "current-password",
+            maxlength: 72,
+            value: (Rails.env.development? ? "password123" : nil) %>
+    </div>
+
+    <%= form.submit "Sign in", class: "btn", style: "width: 100%;" %>
+  <% end %>
+
+  <% unless Rails.env.development? %>
+    <p class="auth-hint">
+      Demo credentials: <code>demo@example.com</code> / <code>password123</code>
+    </p>
+  <% end %>
+</div>

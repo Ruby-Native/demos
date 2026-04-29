@@ -1,0 +1,25 @@
+<% content_for :title, "Today" %>
+
+<%= native_navbar_tag("Today") %>
+<%= native_fab_tag(icon: "plus", href: new_todo_path) %>
+<%= web_fab(href: new_todo_path, label: "New todo") %>
+<%= native_badge_tag(tab: Current.user.todos.pending.count) %>
+
+<h1 class="<%= "native-hidden" if native_app? %>">Today</h1>
+
+<% if @todos.any? %>
+  <ul class="todos">
+    <%= render partial: "todos/row", collection: @todos, as: :todo %>
+  </ul>
+<% else %>
+  <div class="empty">
+    <div class="empty-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    </div>
+    <p>Nothing due today.</p>
+    <p>Tap + to add something.</p>
+  </div>
+<% end %>

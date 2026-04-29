@@ -1,0 +1,39 @@
+<% content_for :title, "Profile" %>
+
+<%= native_navbar_tag("Profile") do |navbar| %>
+  <% navbar.button icon: "ellipsis.circle", position: :leading do |menu| %>
+    <% menu.item "Edit profile", href: edit_profile_path, icon: "pencil" %>
+    <% menu.item "Sign out", click: "#sign-out-button", icon: "rectangle.portrait.and.arrow.right" %>
+  <% end %>
+<% end %>
+<%= native_badge_tag(tab: Current.user.todos.pending.count) %>
+
+<div class="profile-header">
+  <div class="avatar"><%= initials(Current.user.email_address) %></div>
+  <p class="profile-email"><%= Current.user.email_address.split("@").first.titleize %></p>
+  <p class="profile-email-sub"><%= Current.user.email_address %></p>
+</div>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-value"><%= Current.user.todos.pending.count %></div>
+    <div class="stat-label">Open</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value"><%= Current.user.todos.completed.count %></div>
+    <div class="stat-label">Completed</div>
+  </div>
+</div>
+
+<% unless native_app? %>
+  <div class="btn-row">
+    <%= link_to "Edit profile", edit_profile_path, class: "btn secondary" %>
+  </div>
+<% end %>
+
+<%= button_to "Sign out",
+      session_path,
+      method: :delete,
+      id: "sign-out-button",
+      class: "native-hidden danger",
+      data: { turbo_confirm: "Sign out of this account?" } %>
