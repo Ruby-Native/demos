@@ -35,8 +35,13 @@ module ApplicationHelper
     content_tag(:span, label, class: "due-chip #{'overdue' if overdue}".strip)
   end
 
-  def initials(email)
-    email.to_s.split("@").first.split(/[._-]/).first(2).map { |s| s[0] }.join.upcase
+  def initials(value)
+    return "" if value.blank?
+    if value.include?("@")
+      value.split("@").first.split(/[._-]/).first(2).map { |s| s[0] }.join.upcase
+    else
+      value.split(/\s+/).first(2).map { |s| s[0] }.join.upcase
+    end
   end
 
   def web_fab(href:, label: "Add")

@@ -1,15 +1,23 @@
-user = User.find_or_create_by!(email_address: "demo@example.com") do |u|
+User.where.not(email_address: "joe@masilotti.com").destroy_all
+
+user = User.find_or_create_by!(email_address: "joe@masilotti.com") do |u|
+  u.name = "Joe Masilotti"
   u.password = "password123"
   u.password_confirmation = "password123"
 end
+user.update!(name: "Joe Masilotti") if user.name.blank?
 
 user.todos.destroy_all
 
 today = Date.current
 
+next_round_hour = Time.current.change(min: 0, sec: 0) + 1.hour
+buy_milk_due    = [ today.beginning_of_day + 18.hours, next_round_hour ].max
+dentist_due     = [ today.beginning_of_day + 20.hours, buy_milk_due + 2.hours ].max
+
 [
-  { title: "Buy milk",                 due_at: today.beginning_of_day + 15.hours },
-  { title: "Schedule dentist",         due_at: today.beginning_of_day + 17.hours }
+  { title: "Buy milk",         due_at: buy_milk_due },
+  { title: "Schedule dentist", due_at: dentist_due }
 ].each { |attrs| user.todos.create!(attrs) }
 
 [
@@ -23,4 +31,4 @@ today = Date.current
   { title: "Take out recycling",       completed_at: 3.days.ago }
 ].each { |attrs| user.todos.create!(attrs) }
 
-puts "Seeded user demo@example.com (password: password123) with #{user.todos.count} todos"
+puts "Seeded user joe@masilotti.com (password: password123) with #{user.todos.count} todos"

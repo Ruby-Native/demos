@@ -15,7 +15,7 @@
             required: true,
             autofocus: true,
             autocomplete: "username",
-            value: params[:email_address] || (Rails.env.development? ? "demo@example.com" : nil) %>
+            value: params[:email_address] || (Rails.env.development? ? "joe@masilotti.com" : nil) %>
     </div>
 
     <div class="field">
@@ -32,7 +32,7 @@
 
   <% unless Rails.env.development? %>
     <p class="auth-hint">
-      Demo credentials: <code>demo@example.com</code> / <code>password123</code>
+      Demo credentials: <code>joe@masilotti.com</code> / <code>password123</code>
     </p>
   <% end %>
 </div>

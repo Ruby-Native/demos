@@ -9,6 +9,11 @@
 
 <%= form_with model: Current.user, url: profile_path, method: :patch do |form| %>
   <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :email_address, "Email" %>
     <%= form.email_field :email_address, required: true %>
   </div>

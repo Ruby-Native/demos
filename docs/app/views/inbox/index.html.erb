@@ -1,7 +1,7 @@
 <% content_for :title, "Inbox" %>
 
 <%= native_navbar_tag("Inbox") do |navbar| %>
-  <% navbar.button icon: "ellipsis.circle", position: :leading do |menu| %>
+  <% navbar.button icon: "ellipsis.circle" do |menu| %>
     <% menu.item "Sort by due date", href: inbox_path(sort: "due"),     icon: "calendar", selected: @sort == "due" %>
     <% menu.item "Sort by created",  href: inbox_path(sort: "created"), icon: "clock",    selected: @sort == "created" %>
   <% end %>

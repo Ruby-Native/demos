@@ -18,7 +18,7 @@ The gem is loaded from the local umbrella via `gem "ruby_native", path: "../../g
 ## Sign in
 
 ```
-email:    demo@example.com
+email:    joe@masilotti.com
 password: password123
 ```
 
