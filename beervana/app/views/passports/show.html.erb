@@ -28,8 +28,12 @@
           <div class="min-w-0">
             <h2 class="font-semibold"><%= stamp.brewery.name %></h2>
             <p class="text-sm text-stone-500 dark:text-stone-400 mt-0.5">
-              <% days_ago = (Date.current - stamp.stamped_at.to_date).to_i %>
-              Stamped <%= days_ago == 0 ? "today" : days_ago == 1 ? "yesterday" : "#{time_ago_in_words(days_ago.days.ago)} ago" %>
+              <% if ruby_native_screenshot_session? %>
+                Stamped 2 days ago
+              <% else %>
+                <% days_ago = (Date.current - stamp.stamped_at.to_date).to_i %>
+                Stamped <%= days_ago == 0 ? "today" : days_ago == 1 ? "yesterday" : "#{time_ago_in_words(days_ago.days.ago)} ago" %>
+              <% end %>
             </p>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-stone-400 dark:text-stone-600 shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
